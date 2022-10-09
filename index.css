@@ -12,7 +12,18 @@
 }
 
 html {
-    background-color: black;
+    background-color: var(--light-color);
+}
+
+body {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 0 7px;
+}
+
+section {
+    margin: 7px 0px;
 }
 
 #header {
@@ -22,6 +33,7 @@ html {
     height: 11.3vh;
     padding: 15px;
     background-color: var(--dark-color);
+    margin-top: 0;
     justify-content: space-around;
 }
 
@@ -40,4 +52,46 @@ html {
     height: 6.6vh;
     min-width: 48px;
     min-height: 48px;
+}
+
+#publicity {
+    background-color: var(--dark-color);
+    display: flex;
+    position: relative;
+    width: 100%-10px;
+    height: 11.3vh;
+    padding: 15px;
+    margin-top: 0;
+    justify-content: space-around;
+}
+
+#quickAccess {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sales,
+.phones,
+.cars,
+.tv,
+.more {
+    display: flex;
+    width: 8vh;
+    height: 8vh;
+    background-color: var(--medium-color);
+    color: var(--light-color);
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#articles {
+    background-color: var(--dark-color);
+    display: flex;
+    position: relative;
+    width: 100%-10px;
+    height: 11.3vh;
+    margin: 3.5px 0;
+    padding: 15px;
 }
