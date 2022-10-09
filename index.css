@@ -1,0 +1,43 @@
+:root {
+    --dark-color: #220231;
+    --medium-color: #d902e8;
+    --light-color: #ede3fc;
+}
+
+*,
+**,
+*** {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: black;
+}
+
+#header {
+    display: flex;
+    position: relative;
+    width: 100%-10px;
+    height: 11.3vh;
+    padding: 15px;
+    background-color: var(--dark-color);
+    justify-content: space-around;
+}
+
+#searcher {
+    display: flex;
+    position: relative;
+    width: 74.6vw;
+    height: 6.6vh;
+    border-radius: 20px;
+    margin: 0 4vw
+}
+
+#menu,
+#cart {
+    width: 6.6vh;
+    height: 6.6vh;
+    min-width: 48px;
+    min-height: 48px;
+}
