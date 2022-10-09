@@ -19,7 +19,7 @@ body {
     display: flex;
     position: relative;
     flex-direction: column;
-    margin: 0 7px;
+    margin: 0 10px;
 }
 
 section {
@@ -35,6 +35,7 @@ section {
     background-color: var(--dark-color);
     margin-top: 0;
     justify-content: space-around;
+    border-radius: 0 0 8px 8px;
 }
 
 #searcher {
@@ -63,6 +64,7 @@ section {
     padding: 15px;
     margin-top: 0;
     justify-content: space-around;
+    border-radius: 8px
 }
 
 #quickAccess {
@@ -86,12 +88,19 @@ section {
     align-items: center;
 }
 
+#publicity {
+    background-image: url(./resources/offer.jpg);
+    background-position: 0;
+    background-size: cover;
+}
+
 #articles {
     background-color: var(--dark-color);
     display: flex;
     position: relative;
     width: 100%-10px;
     height: 11.3vh;
-    margin: 3.5px 0;
+    margin: 2px 0;
     padding: 15px;
+    border-radius: 8px
 }
