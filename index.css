@@ -142,3 +142,16 @@ section {
     justify-content: right;
     margin-top: -4%;
 }
+
+#loader {
+    position: fixed;
+    color: red;
+    top: 95vh;
+    left: 25vw;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.removeLoader {
+    display: none;
+}

@@ -1,4 +1,5 @@
 const articulesContainer = document.getElementById("articulesContainer");
+let loader = document.getElementById("loader");
 
 
 // Render product on the home page
@@ -50,15 +51,12 @@ window.addEventListener("scroll", () => {
         clientHeight
     } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight) {
-
+        loader.classList.remove("removeLoader")
         console.log("Final de la página");
+        return
     }
-
-
-
 })
 
-// Infinite scroll on home page
 // show new page and remove loader
 window.addEventListener("scroll", () => {
         const {
@@ -66,13 +64,14 @@ window.addEventListener("scroll", () => {
             scrollHeight,
             clientHeight
         } = document.documentElement;
-        let algo = () => {
+        let loadNewPage = () => {
             if (scrollTop + clientHeight >= scrollHeight) {
                 renderHomePage();
+                loader.classList.add("removeLoader")
+
                 console.log("Cargada la nueva página");
             }
         }
-        setTimeout(algo, 2000)
-
+        setTimeout(loadNewPage, 2000)
     })
     // Infinite scroll on home page
