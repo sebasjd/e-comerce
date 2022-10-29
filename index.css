@@ -111,32 +111,47 @@ section {
     width: 100%-10px;
     height: 15.3vh;
     margin: 8px 10px 0 10px;
-    padding: 15px;
+    padding: 5px 15px;
     border-radius: 8px;
     box-shadow: 0px 1px 1px 1px rgba(172, 171, 171, 0.75);
 }
 
-.articles .product {
+.product {
     display: flex;
     position: relative;
     flex-direction: row;
     height: 15.3vh;
 }
 
-.articles .product img {
+.product_img {
     display: flex;
     position: relative;
-    height: 100%;
+    height: auto;
+    width: 30%;
     margin-right: 15px;
-    border-radius: 10px;
+    object-fit: contain;
 }
 
-.articles .product .info {
-    display: flex;
-    flex-direction: column;
+.info {
+    width: 70%;
 }
 
-.articles .btns {
+.product_maker {
+    margin: 3px;
+    font-size: auto;
+}
+
+.product_name {
+    margin: 3px;
+    font-size: auto;
+}
+
+.product_price {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.btns {
     display: flex;
     position: relative;
     justify-content: right;

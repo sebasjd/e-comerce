@@ -18,19 +18,22 @@ let renderHomePage = () => {
             const productImg = producto.productImg;
             const name = producto.name;
             const price = producto.price;
+            const maker = producto.maker;
             const productCard =
                 `<section class="articles">
         <div class="product">
-            <img src="${productImg}" alt="">
+            <img src="${productImg}" alt="Foto de ${maker} - ${name}" class="product_img">
             <div class="info">
-                <h3>${name}</h3>
-                <p>$${price}</p>
+            <h3 class="product_maker">${maker}</h3>
+                <h3 class="product_name">${name}</h3>
+                <p class="product_price">$ ${price}</p>
+                <div class="btns">
+                <a href="/"><button class="bn53">share</button></a>
+                <button>Add to cart</button>
+            </div>
             </div>
         </div>
-        <div class="btns">
-            <button>share</button>
-            <button>Add to cart</button>
-        </div>
+
     </section>`
             articules.innerHTML = productCard;
         }
@@ -44,13 +47,16 @@ document.addEventListener("DOMContentLoaded", renderHomePage())
 //Infinite scroll on home page
 
 // Show loader
+
+let limit = true;
 window.addEventListener("scroll", () => {
     const {
         scrollTop,
         scrollHeight,
         clientHeight
     } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight) {
+    if (scrollTop + clientHeight >= scrollHeight - 70 && limit) {
+        limit = false;
         loader.classList.remove("removeLoader")
         console.log("Final de la página");
         return
@@ -65,13 +71,15 @@ window.addEventListener("scroll", () => {
             clientHeight
         } = document.documentElement;
         let loadNewPage = () => {
-            if (scrollTop + clientHeight >= scrollHeight) {
+            if (scrollTop + clientHeight >= scrollHeight - 70 && !limit) {
+                limit = true;
+
                 renderHomePage();
                 loader.classList.add("removeLoader")
-
                 console.log("Cargada la nueva página");
+                return
             }
         }
-        setTimeout(loadNewPage, 2000)
+        setTimeout(loadNewPage, 1000)
     })
     // Infinite scroll on home page
