@@ -1,25 +1,42 @@
-const articles = document.getElementById("articles");
-
+const articulesContainer = document.getElementById("articulesContainer");
 
 
 //renderizar productos de forma aleatoria
+
 let renderHomePage = () => {
-    const aleatoryArray = arrayProducts[Math.floor(Math.random() * arrayProducts.length)];
-    aleatoryArray.map(articles.innerHTML = `('<div id="articles">
-    <div class="product">
-        <img src="./resources/Samsung A23.jpg" alt="">
-        <div class="info">
-            <h3>product description</h3>
-            <p>$00,00</p>
+    const articules = document.createElement('section');
+    articulesContainer.append(articules);
+    articules.classList.add('articules');
+    const aleatoryProduct = () => {
+        for (let i = 0; i <= arrayProducts.length; i++) {
+            const aleatoryProduct = arrayProducts[Math.floor(Math.random() * arrayProducts.length)];
+            return aleatoryProduct
+        }
+    }
+
+    const renderProduct = (producto) => {
+        const productImg = producto.productImg;
+        const name = producto.name;
+        const price = producto.price;
+        const productCard =
+            `<section class="articles">
+        <div class="product">
+            <img src="${productImg}" alt="">
+            <div class="info">
+                <h3>${name}</h3>
+                <p>$${price}</p>
+            </div>
         </div>
-    </div>
-    <div class="btns">
-        <button>share</button>
-        <button>Add to cart</button>
-    </div>
-</div>'))`)
+        <div class="btns">
+            <button>share</button>
+            <button>Add to cart</button>
+        </div>
+    </section>`
+        articules.innerHTML = productCard;
+    }
+    renderProduct(aleatoryProduct())
 }
+renderHomePage()
 
-// renderHomePage()
 
-console.log(arrayProducts);
+// console.log(aleatoryArray);
