@@ -1,0 +1,186 @@
+:root {
+    --dark-color: #220231;
+    --medium-color: #F5F5F5;
+    --light-color: #FFFFFF;
+}
+
+.bn53 {
+    background-color: var(--dark-color);
+    color: var(--medium-color);
+    width: 60px;
+    margin: 0 3px;
+    height: 25px;
+    font-weight: bold;
+    animation: bn53bounce 5s infinite;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+@keyframes bn53bounce {
+    5%,
+    50% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1) rotate(-3deg);
+    }
+    25% {
+        transform: scale(1) rotate(3deg);
+    }
+    30% {
+        transform: scale(1) rotate(-2deg);
+    }
+    35% {
+        transform: scale(1) rotate(1deg);
+    }
+    40% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.bn632-hover {
+    background-color: var(--dark-color);
+    color: var(--medium-color);
+    width: 63px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.filterBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 7px 0;
+    font-size: 30px;
+}
+
+.samsung {
+    display: flex;
+    background-image: url(./imgFilters/samsung.jpg);
+    background-position: center;
+    background-size: 10vh;
+    background-repeat: no-repeat;
+    height: 8vh;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.motorola {
+    display: flex;
+    background-image: url(./imgFilters/motorola.jpg);
+    background-position: center;
+    background-size: 8.3vh;
+    background-repeat: no-repeat;
+    height: 8vh;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.apple {
+    display: flex;
+    background-image: url(./imgFilters/apple.jpg);
+    background-position: center;
+    background-size: 8vh;
+    background-repeat: no-repeat;
+    height: 8vh;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.alcatel {
+    display: flex;
+    background-image: url(./imgFilters/alcatel.jpg);
+    background-position: center;
+    background-size: 10vh;
+    background-repeat: no-repeat;
+    height: 8vh;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.more {
+    display: flex;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    font-size: 70%;
+    font-weight: bold;
+}
+
+.moreBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 7px 0 0 0;
+    font-size: 30px;
+    justify-content: space-around;
+}
+
+.noblex {
+    display: flex;
+    top: 45vh;
+    right: 1.8%;
+    background-image: url(./imgFilters/noblex.jpg);
+    background-position: center;
+    background-size: 10vh;
+    background-repeat: no-repeat;
+    z-index: 5;
+    transition: box-shadow .2s;
+}
+
+.tcl {
+    display: flex;
+    top: 45vh;
+    right: 1.8%;
+    background-image: url(./imgFilters/tcl.jpg);
+    background-position: center;
+    background-size: 10vh;
+    background-repeat: no-repeat;
+    z-index: 5;
+    transition: box-shadow .2s;
+}
+
+.nokia {
+    display: flex;
+    top: 45vh;
+    right: 1.8%;
+    background-image: url(./imgFilters/nokia.jpg);
+    background-position: center;
+    background-size: 10vh;
+    background-repeat: no-repeat;
+    z-index: 5;
+    transition: box-shadow .2s;
+}
+
+.xiaomi {
+    display: flex;
+    top: 45vh;
+    right: 1.8%;
+    background-image: url(./imgFilters/xiaomi.jpg);
+    background-position: center;
+    background-size: 10vh;
+    background-repeat: no-repeat;
+    z-index: 5;
+    transition: box-shadow .2s;
+}
+
+.showButton {
+    height: 8vh;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    transition: height .5s;
+}
+
+.removeButton {
+    width: 0;
+    height: 0;
+    box-shadow: 0px;
+    transition: height .5s;
+}

@@ -19,8 +19,9 @@ let renderHomePage = () => {
             const name = producto.name;
             const price = producto.price;
             const maker = producto.maker;
+            const id = producto.id;
             const productCard =
-                `<section class="articles">
+                `
         <div class="product">
             <img src="${productImg}" alt="Foto de ${maker} - ${name}" class="product_img">
             <div class="info">
@@ -28,16 +29,27 @@ let renderHomePage = () => {
                 <h3 class="product_name">${name}</h3>
                 <p class="product_price">$ ${price}</p>
                 <div class="btns">
-                <a href="/"><button class="bn53">share</button></a>
-                <button>Add to cart</button>
+                <button class="bn53">Share</button>
+                <button class="bn632-hover bn20" data-id="${id}">To Cart</button>
             </div>
             </div>
         </div>
-
-    </section>`
+`
             articules.innerHTML = productCard;
+
         }
         renderProduct(aleatoryProduct())
+
+
+        const datasetBtn = articules.children[0].children[1].children[3].children[1].dataset.id
+        const selectedProduct = arrayProducts.find(e => e.id == datasetBtn)
+        const btnToCart = articules.querySelector(".bn20");
+
+        btnToCart.addEventListener("click", function() { console.log(selectedProduct.maker + " " + selectedProduct.name) })
+
+        const btnShare = articules.querySelector(".bn53");
+        btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
+
     }
 }
 document.addEventListener("DOMContentLoaded", renderHomePage())
@@ -83,3 +95,17 @@ window.addEventListener("scroll", () => {
         setTimeout(loadNewPage, 1000)
     })
     // Infinite scroll on home page
+
+//button +
+
+const more = document.querySelector(".more")
+const moreBtns = document.querySelectorAll(".hidenBtns")
+let showMoreBtns = () => {
+    console.log(moreBtns);
+    for (let e of moreBtns) {
+        e.classList.contains("showButton") ? e.classList.toggle("showButton") : e.classList.toggle("showButton");
+    }
+    more.textContent === "+" ? more.textContent = "-" : more.textContent = "+";
+}
+more.addEventListener("click", showMoreBtns);
+//button +
