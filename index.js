@@ -2,14 +2,13 @@ const articulesContainer = document.getElementById("articulesContainer");
 let loader = document.getElementById("loader");
 
 //saveing cart objects
-var cartObjects = [];
-const saveLocalStorage = () => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjectsLS))
+const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects))
     //take cart objects frop LS
 let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'))
-    // function that converts number to currency
-const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
 
-// Render product on home page
+// function that converts number to currency
+const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
+    // Render product on home page
 let renderHomePage = () => {
     for (let i = 0; i <= 3; i++) {
         const articules = document.createElement('section');
@@ -53,8 +52,10 @@ let renderHomePage = () => {
 
         //function to find the selected item & push on LS
         const addProduct = () => {
-            console.log("object");
-
+            cartObjects = JSON.parse(localStorage.getItem('cartObjectsLS')) || []
+            cartObjects.push(selectedProduct)
+            console.log(cartObjects);
+            saveLocalStorage(cartObjects)
         }
         btnToCart.addEventListener("click", addProduct)
 
@@ -62,16 +63,12 @@ let renderHomePage = () => {
         const btnShare = articules.querySelector(".bn53");
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
     }
-
-
 }
 document.addEventListener("DOMContentLoaded", renderHomePage())
-
 
 //Infinite scroll on home page
 
 // Show loader
-
 
 let limit = true;
 window.addEventListener("scroll", () => {
@@ -104,7 +101,6 @@ window.addEventListener("scroll", () => {
     }
     setTimeout(loadNewPage, 1000)
 })
-
 
 //button +
 
@@ -164,7 +160,6 @@ let renderFilteredProducts = (trademark) => {
 `
         articules.innerHTML = productCard;
 
-
         //  To Cart & Share buttons operation
         const datasetBtn = articules.children[0].children[1].children[3].children[1].dataset.id
         const selectedProduct = arrayProducts.find(e => e.id == datasetBtn)
@@ -172,19 +167,16 @@ let renderFilteredProducts = (trademark) => {
 
         //function to find the selected item & push on LS
         const addProduct = () => {
-            console.log(datasetBtn);
-
+            cartObjects = JSON.parse(localStorage.getItem('cartObjectsLS')) || []
+            cartObjects.push(selectedProduct)
+            console.log(cartObjects);
+            saveLocalStorage(cartObjects)
         }
         btnToCart.addEventListener("click", addProduct)
 
         //function to sharing feature
         const btnShare = articules.querySelector(".bn53");
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
-
-
-
-
-
     }
     selectedFilter(trademark).forEach(element => {
         renderProduct(element);
@@ -244,8 +236,10 @@ let renderSearch = (trademark) => {
 
         //function to find the selected item & push on LS
         const addProduct = () => {
-            console.log(selectedProduct);
-
+            cartObjects = JSON.parse(localStorage.getItem('cartObjectsLS')) || []
+            cartObjects.push(selectedProduct)
+            console.log(cartObjects);
+            saveLocalStorage(cartObjects)
         }
         btnToCart.addEventListener("click", addProduct)
 
