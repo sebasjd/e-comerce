@@ -198,7 +198,7 @@ xiaomi.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
 const searcher = document.querySelector("#searcher");
 
 let searchedFilter = (trademark) => {
-    const filteredProducts = arrayProducts.filter(e => e.maker.toLowerCase().includes(trademark.value) || e.name.toLowerCase().includes(trademark.value));
+    const filteredProducts = arrayProducts.filter(e => e.maker.toLowerCase().includes(trademark.value.toLowerCase()) || e.name.toLowerCase().includes(trademark.value));
     return filteredProducts
 }
 let renderSearch = (trademark) => {
