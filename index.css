@@ -1,7 +1,7 @@
 :root {
-    --dark-color: #220231;
-    --medium-color: #F5F5F5;
-    --light-color: #FFFFFF;
+    --dark-color: rgb(238, 242, 255);
+    --medium-color: #7f8487;
+    --light-color: #16003b;
 }
 
 *,
@@ -13,6 +13,7 @@
 
 html {
     background-color: var(--medium-color);
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
@@ -29,15 +30,14 @@ section {
 #header {
     display: flex;
     position: fixed;
-    width: 92%;
+    width: 100%;
     height: 11vh;
-    padding: 15px;
-    background-color: var(--dark-color);
+    background-color: var(--light-color);
     margin-top: 0;
     justify-content: space-around;
     align-items: center;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 1);
     z-index: 10;
 }
 
@@ -52,15 +52,6 @@ section {
     padding-left: 35px;
 }
 
-#menu,
-#cart {
-    width: 6.6vh;
-    height: 6.6vh;
-    min-width: 48px;
-    min-height: 48px;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
-}
-
 #publicity {
     background-color: var(--dark-color);
     display: flex;
@@ -73,6 +64,9 @@ section {
     border-radius: 8px;
     box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
     margin-bottom: 10px;
+    background-image: url(./resources/offer.jpg);
+    background-position: 0;
+    background-size: cover;
 }
 
 #quickAccess {
@@ -92,12 +86,6 @@ section {
     margin: 3px;
 }
 
-#publicity {
-    background-image: url(./resources/offer.jpg);
-    background-position: 0;
-    background-size: cover;
-}
-
 .articules {
     background-color: var(--light-color);
     color: var(--dark-color-color);
@@ -109,7 +97,7 @@ section {
     margin: 8px 10px 0 10px;
     padding: 5px 8px 5px 0px;
     border-radius: 8px;
-    box-shadow: 0px 1px 1px 1px rgba(172, 171, 171, 0.75);
+    box-shadow: 0px 1px 1px 1px rgba(123, 123, 123, 0.75);
 }
 
 .product {
@@ -117,6 +105,7 @@ section {
     position: relative;
     flex-direction: row;
     height: 15.3vh;
+    margin-left: 5px;
 }
 
 .product_img {
@@ -135,16 +124,25 @@ section {
 .product_maker {
     margin: 3px;
     font-size: auto;
+    font-weight: normal;
+    color: var(--dark-color);
 }
 
 .product_name {
     margin: 3px;
     font-size: auto;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--dark-color);
 }
 
 .product_price {
     font-size: 24px;
     margin: 10px 0;
+    font-weight: 400;
+    color: var(--dark-color);
 }
 
 .btns {

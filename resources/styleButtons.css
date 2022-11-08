@@ -1,12 +1,6 @@
-:root {
-    --dark-color: #220231;
-    --medium-color: #F5F5F5;
-    --light-color: #FFFFFF;
-}
-
 .bn53 {
     background-color: var(--dark-color);
-    color: var(--medium-color);
+    color: var(--light-color);
     width: 60px;
     margin: 0 3px;
     height: 25px;
@@ -49,7 +43,7 @@
 
 .bn632-hover {
     background-color: var(--dark-color);
-    color: var(--medium-color);
+    color: var(--light-color);
     width: 63px;
     height: 30px;
     font-weight: bold;
@@ -58,6 +52,15 @@
     text-align: center;
     align-items: center;
     border-radius: 8px;
+}
+
+#menu,
+#cart {
+    background-color: transparent;
+    border: none;
+    color: var(--dark-color);
+    font-size: 1.7rem;
+    margin: 0 10px;
 }
 
 .filterBtns {
@@ -75,7 +78,9 @@
     background-size: 10vh;
     background-repeat: no-repeat;
     height: 8vh;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: var(--light-color);
 }
 
 .motorola {
@@ -85,7 +90,9 @@
     background-size: 8.3vh;
     background-repeat: no-repeat;
     height: 8vh;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: var(--light-color);
 }
 
 .apple {
@@ -95,7 +102,9 @@
     background-size: 8vh;
     background-repeat: no-repeat;
     height: 8vh;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: var(--light-color);
 }
 
 .alcatel {
@@ -105,14 +114,18 @@
     background-size: 10vh;
     background-repeat: no-repeat;
     height: 8vh;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: var(--light-color);
 }
 
 .more {
     display: flex;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
     font-size: 70%;
     font-weight: bold;
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: var(--light-color);
 }
 
 .moreBtns {
@@ -174,13 +187,85 @@
 
 .showButton {
     height: 8vh;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
     transition: height .5s;
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: var(--light-color);
 }
 
 .removeButton {
     width: 0;
     height: 0;
-    box-shadow: 0px;
     transition: height .5s;
+    outline-style: none;
+}
+
+.remove {
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 5px 2px rgba(238, 242, 255, .75);
+}
+
+.arrows {
+    display: flex;
+}
+
+.up,
+.down {
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--dark-color);
+}
+
+.down i,
+.up i {
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 2px rgba(238, 242, 255, .75);
+    outline: none;
+}
+
+.btn41-43 {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    background: transparent;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.btn-42 {
+    border: 2px solid var(--dark-color);
+    z-index: 1;
+    color: var(--dark-color)
+}
+
+.btn-42:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: var(--dark-color);
+    transition: all 0.3s ease;
+}
+
+.btn-42:hover {
+    color: var(--light-color);
+}
+
+.btn-42:hover:after {
+    top: 0;
+    height: 100%;
+}
+
+.btn-42:active {
+    top: 2px;
 }
