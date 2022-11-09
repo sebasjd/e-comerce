@@ -9,7 +9,7 @@
     z-index: 20;
     right: 0px;
     row-gap: 18px;
-    grid-template-rows: 5% auto 10% 10%;
+    grid-template-rows: 3.5% auto 8% 10%;
     top: 0%;
     margin: 0%;
     transform: translateX(150%);
@@ -32,6 +32,7 @@
     z-index: 20;
     right: 0;
     overflow-y: auto;
+    margin: 0;
 }
 
 .cartArticules {
@@ -82,6 +83,7 @@
     background-color: var(--dark-color);
     color: var(--light-color);
     font-size: 1.3rem;
+    box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
 }
 
 .purchase {
@@ -89,6 +91,7 @@
     width: auto;
     height: auto;
     margin: 0 10px;
+    box-shadow: 0px 0px 5px 2px rgba(238, 242, 255, .75), inset 0px 0px 5px 2px rgba(238, 242, 255, .75);
 }
 
 .hideCart {

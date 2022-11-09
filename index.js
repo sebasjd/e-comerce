@@ -11,7 +11,7 @@ let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'))
 const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
     // Render product on home page
 let renderHomePage = () => {
-    for (let i = 0; i <= 3; i++) {
+    for (let i = 0; i <= 7; i++) {
         const articules = document.createElement('section');
         articulesContainer.append(articules);
         articules.classList.add('articules');
@@ -55,7 +55,6 @@ let renderHomePage = () => {
         const addProduct = () => {
             if (cartObjects.includes(selectedProduct)) {
                 selectedProduct.quantity++;
-                console.log(selectedProduct.quantity);
             } else { cartObjects.push(selectedProduct) }
             saveLocalStorage(cartObjects)
         }
@@ -74,18 +73,21 @@ document.addEventListener("DOMContentLoaded", renderHomePage())
 // Show loader
 
 let limit = true;
+
 window.addEventListener("scroll", () => {
     const {
         scrollTop,
         scrollHeight,
         clientHeight
     } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 70 && limit) {
-        limit = false;
-        loader.classList.remove("removeLoader")
-        return
+    if (articulesContainer.classList.contains("homePage")) {
+        if (scrollTop + clientHeight >= scrollHeight - 70 && limit) {
+            limit = false;
+            loader.classList.remove("removeLoader")
+        }
     }
 })
+
 
 // show new page and remove loader
 window.addEventListener("scroll", () => {
@@ -95,11 +97,13 @@ window.addEventListener("scroll", () => {
         clientHeight
     } = document.documentElement;
     let loadNewPage = () => {
-        if (scrollTop + clientHeight >= scrollHeight - 70 && !limit) {
-            limit = true;
-            renderHomePage();
-            loader.classList.add("removeLoader")
-            return
+        if (articulesContainer.classList.contains("homePage")) {
+            if (scrollTop + clientHeight >= scrollHeight - 70 && !limit) {
+                limit = true;
+                renderHomePage();
+                loader.classList.add("removeLoader")
+                return
+            }
         }
     }
     setTimeout(loadNewPage, 1000)
@@ -172,7 +176,6 @@ let renderFilteredProducts = (trademark) => {
         const addProduct = () => {
             if (cartObjects.includes(selectedProduct)) {
                 selectedProduct.quantity++;
-                console.log(selectedProduct.quantity);
             } else { cartObjects.push(selectedProduct) }
             saveLocalStorage(cartObjects)
         }
@@ -183,6 +186,8 @@ let renderFilteredProducts = (trademark) => {
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
     }
     selectedFilter(trademark).forEach(element => renderProduct(element));
+    articulesContainer.classList.remove("homePage")
+
 }
 
 samsung.addEventListener("click", function() { renderFilteredProducts(samsung) });
@@ -249,6 +254,7 @@ let renderSearch = (trademark) => {
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
     }
     searchedFilter(trademark).forEach(element => renderProduct(element));
+    articulesContainer.classList.remove("homePage")
 }
 searcher.addEventListener("input", function() { renderSearch(searcher) });
 
@@ -304,10 +310,16 @@ const RenderCart = () => {
         const up = cartArticules.querySelector(".up");
         const down = cartArticules.querySelector(".down");
         const handleQuantity = cartArticules.querySelector(".quantity");
+        const downArrow = cartArticules.querySelector(".fa-square-caret-down");
+
+        if (handleQuantity.value > 1) {
+            downArrow.classList.remove("blockDown")
+        } else { downArrow.classList.add("blockDown") }
 
         function increase() {
             selectedProduct.quantity++;
             handleQuantity.value++;
+            downArrow.classList.remove("blockDown")
             saveLocalStorage(cartObjects);
         }
 
@@ -316,7 +328,8 @@ const RenderCart = () => {
                 selectedProduct.quantity--;
                 handleQuantity.value--;
                 saveLocalStorage(cartObjects);
-            }
+            };
+            if (handleQuantity.value == 1) { downArrow.classList.add("blockDown") }
         }
         up.addEventListener("click", increase)
         down.addEventListener("click", decrease)
