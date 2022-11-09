@@ -262,6 +262,14 @@ searcher.addEventListener("input", function() { renderSearch(searcher) });
 
 const RenderCart = () => {
     cartObjects = JSON.parse(localStorage.getItem('cartObjectsLS')) || []
+    let money = document.querySelector(".money");
+    const renderAmount = () => {
+        var amount = 0;
+        cartObjects.forEach(e => {
+            amount += e.price * e.quantity;
+        });
+        money.innerHTML = `<p>$ ${moneyTransform(amount)}</p>`
+    }
     const renderCartItems = (producto) => {
         const cartArticules = document.createElement('section');
         cartContainer.append(cartArticules);
@@ -284,7 +292,7 @@ const RenderCart = () => {
     <p class="product_price">$ ${moneyTransform(price)}</p>
     <div class="cartBtns">
     <button class="down" data-id="${id}"><i class="fa-regular fa-square-caret-down"></i></button>
-    <input type="number" value=${quantity} class="quantity" min="1">
+    <input type="number" value=${quantity} class="quantity" min="1" readonly>
     <button class="up" data-id="${id}"><i class="fa-regular fa-square-caret-up"></i></i></button>
     <button class="bn632-hover bn20 remove" data-id="${id}">Remove</button>
 </div>
@@ -301,6 +309,7 @@ const RenderCart = () => {
             cartObjects = cartObjects.filter(e => e.id != datasetBtn)
             saveLocalStorage(cartObjects)
             cartContainer.innerHTML = ""
+            renderAmount()
             RenderCart()
 
         }
@@ -320,6 +329,7 @@ const RenderCart = () => {
             selectedProduct.quantity++;
             handleQuantity.value++;
             downArrow.classList.remove("blockDown")
+            renderAmount()
             saveLocalStorage(cartObjects);
         }
 
@@ -327,6 +337,7 @@ const RenderCart = () => {
             if (handleQuantity.value > 1) {
                 selectedProduct.quantity--;
                 handleQuantity.value--;
+                renderAmount()
                 saveLocalStorage(cartObjects);
             };
             if (handleQuantity.value == 1) { downArrow.classList.add("blockDown") }
@@ -335,6 +346,8 @@ const RenderCart = () => {
         down.addEventListener("click", decrease)
     }
     cartObjects.forEach(e => renderCartItems(e));
+    renderAmount()
+
 }
 
 //show & hide cart

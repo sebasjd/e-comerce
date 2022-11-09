@@ -1,17 +1,17 @@
 .cart {
     position: fixed;
     display: grid;
-    padding: 10px 0 20px 0px;
+    padding: 5px 0 4rem 0px;
     width: 95vw;
-    height: 98%;
+    height: 97.5%;
     max-width: 500px;
-    background-color: var(--light-color);
+    background-color: var(--dark-color);
     z-index: 20;
     right: 0px;
     row-gap: 18px;
     grid-template-rows: 3.5% auto 8% 10%;
     top: 0%;
-    margin: 0%;
+    margin: 0;
     transform: translateX(150%);
     box-shadow: -13px 0px 15px 0px rgba(0, 0, 0, 1);
 }
@@ -28,21 +28,26 @@
     width: 100%;
     height: 100%;
     max-width: 500px;
-    background-color: var(--light-color);
+    background-color: var(--dark-color);
     z-index: 20;
     right: 0;
     overflow-y: auto;
     margin: 0;
 }
 
+.product h3,
+.product p {
+    color: var(--light-color);
+}
+
 .cartArticules {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--dark-color);
+    color: var(--light-color);
     display: flex;
     position: relative;
     flex-direction: column;
     width: auto;
-    height: 18vh;
+    height: 8.1rem;
     padding: 5px 8px 5px 0px;
     box-shadow: 0px 1.5px 0px 0px rgba(99, 99, 99, 0.5);
 }
@@ -58,12 +63,13 @@
     width: 55px;
     height: 23px;
     border: none;
-    box-shadow: 0px 0px 5px 2px rgba(238, 242, 255, .75);
     text-align: center;
     padding: 0 4px;
     font-weight: bold;
     font-size: 20px;
-    background-color: var(--dark-color);
+    border-radius: 32px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow: 3px 3px 6px #b1b1b1, -3px -3px 6px #ffffff;
     color: var(--light-color);
 }
 
@@ -80,18 +86,11 @@
     margin: 0 10px;
     width: auto;
     height: auto;
-    background-color: var(--dark-color);
     color: var(--light-color);
     font-size: 1.3rem;
-    box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
-}
-
-.purchase {
-    display: flex;
-    width: auto;
-    height: auto;
-    margin: 0 10px;
-    box-shadow: 0px 0px 5px 2px rgba(238, 242, 255, .75), inset 0px 0px 5px 2px rgba(238, 242, 255, .75);
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: inset 7px 7px 13px #b1b1b1, inset -7px -7px 13px #ffffff;
 }
 
 .hideCart {

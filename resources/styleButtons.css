@@ -216,7 +216,15 @@
 .remove {
     border: none;
     outline: none;
-    box-shadow: 0px 0px 5px 2px rgba(238, 242, 255, .75);
+    border-radius: 10px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow: 3px 3px 6px #b1b1b1, -3px -3px 6px #ffffff;
+}
+
+.remove:active {
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: inset 3px 3px 6px #b1b1b1, inset -3px -3px 6px #ffffff;
 }
 
 .arrows {
@@ -228,19 +236,37 @@
     background-color: transparent;
     border: none;
     font-size: 1.4rem;
-    color: var(--dark-color);
+    color: var(--light-color);
 }
 
 .fa-square-caret-down,
 .up i {
     background-color: transparent;
-    filter: drop-shadow(0px 0px 1.5px rgba(238, 242, 255, 1)) drop-shadow(0px 0px 1.5px rgba(238, 242, 255, 1)) drop-shadow(0px 0px 1.5px rgba(238, 242, 255, 1));
-    outline: none;
-    color: var(--light-color);
+    border-radius: 2px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow: 1px 1px 2px #b1b1b1, -1px -1px 2px #ffffff;
+}
+
+.fa-square-caret-down:active,
+.up i:active {
+    border-radius: 2px;
+    background: #e0e0e0;
+    box-shadow: inset 1px 1px 2px #b1b1b1, inset -1px -1px 2px #ffffff;
 }
 
 .blockDown {
     filter: drop-shadow(0px 0px 1.5px rgba(238, 242, 255, 1))!important
+}
+
+.purchase {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 7px 7px 13px #b1b1b1, -7px -7px 13px #ffffff;
 }
 
 .btn41-43 {
@@ -258,30 +284,12 @@
 }
 
 .btn-42 {
-    border: 2px solid var(--dark-color);
     z-index: 1;
-    color: var(--dark-color)
-}
-
-.btn-42:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    background: var(--dark-color);
-    transition: all 0.3s ease;
+    color: var(--ligt-color)
 }
 
 .btn-42:hover {
     color: var(--light-color);
-}
-
-.btn-42:hover:after {
-    top: 0;
-    height: 100%;
 }
 
 .btn-42:active {

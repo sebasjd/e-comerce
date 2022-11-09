@@ -1,5 +1,5 @@
 :root {
-    --dark-color: rgb(238, 242, 255);
+    --dark-color: #e0e0e0;
     --medium-color: #7f8487;
     --light-color: #16003b;
 }
@@ -65,7 +65,7 @@ section {
     display: flex;
     position: relative;
     width: 100%-10px;
-    height: 11.3vh;
+    height: 6rem;
     padding: 15px;
     margin: 6rem 10px 0 10px;
     justify-content: space-around;
