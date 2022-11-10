@@ -217,7 +217,7 @@
     border: none;
     outline: none;
     border-radius: 10px;
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    background: linear-gradient(145deg, #f0f0f0, var(--dark-color));
     box-shadow: 3px 3px 6px #b1b1b1, -3px -3px 6px #ffffff;
 }
 
@@ -242,8 +242,9 @@
 .fa-square-caret-down,
 .up i {
     background-color: transparent;
+    padding: 2px;
     border-radius: 2px;
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    background: linear-gradient(145deg, #f0f0f0, var(--dark-color));
     box-shadow: 1px 1px 2px #b1b1b1, -1px -1px 2px #ffffff;
 }
 
@@ -265,8 +266,9 @@
     margin: 0 10px;
     border: none;
     border-radius: 10px;
-    background: #e0e0e0;
+    background: var(--light-color);
     box-shadow: 7px 7px 13px #b1b1b1, -7px -7px 13px #ffffff;
+    color: var(--dark-color);
 }
 
 .btn41-43 {
@@ -281,11 +283,13 @@
     transition: all 0.3s ease;
     position: relative;
     text-decoration: none;
+    background: var(--light-color);
+    color: var(--dark-color);
 }
 
 .btn-42 {
     z-index: 1;
-    color: var(--ligt-color)
+    color: var(--dark-color)
 }
 
 .btn-42:hover {
