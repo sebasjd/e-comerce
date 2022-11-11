@@ -1,4 +1,4 @@
-const articulesContainer = document.getElementById("articulesContainer");
+const articlesContainer = document.getElementById("articlesContainer");
 const cartContainer = document.querySelector(".cartContainer")
 let loader = document.getElementById("loader");
 let modal = document.querySelector(".modal");
@@ -15,14 +15,15 @@ const refreshNumber = () => {
 refreshNumber(cartObjectsLS.length)
 
 
+
 // function that converts number to currency
 const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
     // Render product on home page
 let renderHomePage = () => {
     for (let i = 0; i <= 7; i++) {
-        const articules = document.createElement('section');
-        articulesContainer.append(articules);
-        articules.classList.add('articules');
+        const articles = document.createElement('section');
+        articlesContainer.append(articles);
+        articles.classList.add('articles');
         const aleatoryProduct = () => {
             for (let i = 0; i <= arrayProducts.length; i++) {
                 const aleatoryProduct = arrayProducts[Math.floor(Math.random() * arrayProducts.length)];
@@ -50,14 +51,14 @@ let renderHomePage = () => {
             </div>
         </div>
 `
-            articules.innerHTML = productCard;
+            articles.innerHTML = productCard;
         }
         renderProduct(aleatoryProduct())
 
         //  To Cart & Share buttons operation
-        const datasetBtn = articules.children[0].children[1].children[3].children[1].dataset.id
+        const datasetBtn = articles.children[0].children[1].children[3].children[1].dataset.id
         const selectedProduct = arrayProducts.find(e => e.id == datasetBtn)
-        const btnToCart = articules.querySelector(".bn20");
+        const btnToCart = articles.querySelector(".bn20");
 
         //function to find the selected item & push on LS
         const addProduct = () => {
@@ -86,8 +87,13 @@ let renderHomePage = () => {
         btnToCart.addEventListener("click", addProduct)
 
         //function to sharing feature
-        const btnShare = articules.querySelector(".bn53");
-        btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
+        const btnShare = articles.querySelector(".bn53");
+        var nativeShare = function() {
+            if (window.innerWidth <= 768) {
+                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*Check out this article in this store. It's AWESOME!* https://e-commerce-sebasjd.vercel.app/${selectedProduct.id}.html`));
+            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*Check out this article in this store. It's AWESOME!* https://e-commerce-sebasjd.vercel.app/${selectedProduct.id}.html`)); }
+        }
+        btnShare.addEventListener("click", nativeShare)
 
     }
 }
@@ -105,7 +111,7 @@ window.addEventListener("scroll", () => {
         scrollHeight,
         clientHeight
     } = document.documentElement;
-    if (articulesContainer.classList.contains("homePage")) {
+    if (articlesContainer.classList.contains("homePage")) {
         if (scrollTop + clientHeight >= scrollHeight - 70 && limit) {
             limit = false;
             loader.classList.remove("removeLoader")
@@ -122,7 +128,7 @@ window.addEventListener("scroll", () => {
         clientHeight
     } = document.documentElement;
     let loadNewPage = () => {
-        if (articulesContainer.classList.contains("homePage")) {
+        if (articlesContainer.classList.contains("homePage")) {
             if (scrollTop + clientHeight >= scrollHeight - 70 && !limit) {
                 limit = true;
                 renderHomePage();
@@ -164,11 +170,11 @@ let selectedFilter = (trademark) => {
 }
 
 let renderFilteredProducts = (trademark) => {
-    articulesContainer.innerHTML = ""
+    articlesContainer.innerHTML = ""
     const renderProduct = (producto) => {
-        const articules = document.createElement('section');
-        articulesContainer.append(articules);
-        articules.classList.add('articules');
+        const articles = document.createElement('section');
+        articlesContainer.append(articles);
+        articles.classList.add('articles');
 
         const productImg = producto.productImg;
         const name = producto.name;
@@ -190,12 +196,12 @@ let renderFilteredProducts = (trademark) => {
         </div>
     </div>
 `
-        articules.innerHTML = productCard;
+        articles.innerHTML = productCard;
 
         //  To Cart & Share buttons operation
-        const datasetBtn = articules.children[0].children[1].children[3].children[1].dataset.id
+        const datasetBtn = articles.children[0].children[1].children[3].children[1].dataset.id
         const selectedProduct = arrayProducts.find(e => e.id == datasetBtn)
-        const btnToCart = articules.querySelector(".bn20");
+        const btnToCart = articles.querySelector(".bn20");
 
         //function to find the selected item & push on LS
         const addProduct = () => {
@@ -222,11 +228,11 @@ let renderFilteredProducts = (trademark) => {
         btnToCart.addEventListener("click", addProduct)
 
         //function to sharing feature
-        const btnShare = articules.querySelector(".bn53");
+        const btnShare = articles.querySelector(".bn53");
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
     }
     selectedFilter(trademark).forEach(element => renderProduct(element));
-    articulesContainer.classList.remove("homePage")
+    articlesContainer.classList.remove("homePage")
 
 }
 
@@ -248,11 +254,11 @@ let searchedFilter = (trademark) => {
     return filteredProducts
 }
 let renderSearch = (trademark) => {
-    articulesContainer.innerHTML = ""
+    articlesContainer.innerHTML = ""
     const renderProduct = (producto) => {
-        const articules = document.createElement('section');
-        articulesContainer.append(articules);
-        articules.classList.add('articules');
+        const articles = document.createElement('section');
+        articlesContainer.append(articles);
+        articles.classList.add('articles');
 
         const productImg = producto.productImg;
         const name = producto.name;
@@ -274,11 +280,11 @@ let renderSearch = (trademark) => {
         </div>
     </div>
 `
-        articules.innerHTML = productCard;
+        articles.innerHTML = productCard;
         //  To Cart & Share buttons operation
-        const datasetBtn = articules.children[0].children[1].children[3].children[1].dataset.id
+        const datasetBtn = articles.children[0].children[1].children[3].children[1].dataset.id
         const selectedProduct = arrayProducts.find(e => e.id == datasetBtn)
-        const btnToCart = articules.querySelector(".bn20");
+        const btnToCart = articles.querySelector(".bn20");
 
         //function to find the selected item & push on LS
         const addProduct = () => {
@@ -307,11 +313,11 @@ let renderSearch = (trademark) => {
         btnToCart.addEventListener("click", addProduct)
 
         //function to sharing feature
-        const btnShare = articules.querySelector(".bn53");
+        const btnShare = articles.querySelector(".bn53");
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
     }
     searchedFilter(trademark).forEach(element => renderProduct(element));
-    articulesContainer.classList.remove("homePage")
+    articlesContainer.classList.remove("homePage")
 }
 searcher.addEventListener("input", function() { renderSearch(searcher) });
 
@@ -328,9 +334,9 @@ const RenderCart = () => {
         money.innerHTML = `<p>$ ${moneyTransform(amount)}</p>`
     }
     const renderCartItems = (producto) => {
-        const cartArticules = document.createElement('section');
-        cartContainer.append(cartArticules);
-        cartArticules.classList.add('cartArticules');
+        const cartarticles = document.createElement('section');
+        cartContainer.append(cartarticles);
+        cartarticles.classList.add('cartarticles');
 
         const productImg = producto.productImg;
         const name = producto.name;
@@ -356,11 +362,11 @@ const RenderCart = () => {
 </div>
 </div>
 `
-        cartArticules.innerHTML = productCard;
+        cartarticles.innerHTML = productCard;
 
-        const datasetBtn = cartArticules.children[0].children[1].children[3].children[2].dataset.id
+        const datasetBtn = cartarticles.children[0].children[1].children[3].children[2].dataset.id
         const selectedProduct = cartObjects.find(e => e.id == datasetBtn)
-        const btnRemove = cartArticules.querySelector(".remove");
+        const btnRemove = cartarticles.querySelector(".remove");
         // delete item function
         function removeObject() {
             cartObjects = cartObjects.filter(e => e.id != datasetBtn)
@@ -373,10 +379,10 @@ const RenderCart = () => {
         btnRemove.addEventListener("click", removeObject);
 
         // increase & decrease cuantity
-        const up = cartArticules.querySelector(".up");
-        const down = cartArticules.querySelector(".down");
-        const handleQuantity = cartArticules.querySelector(".quantity");
-        const downArrow = cartArticules.querySelector(".fa-square-caret-down");
+        const up = cartarticles.querySelector(".up");
+        const down = cartarticles.querySelector(".down");
+        const handleQuantity = cartarticles.querySelector(".quantity");
+        const downArrow = cartarticles.querySelector(".fa-square-caret-down");
 
         if (handleQuantity.value > 1) {
             downArrow.classList.remove("blockDown")
@@ -421,6 +427,6 @@ const hideCart = () => {
     if (cart.classList.contains("showCart")) { cart.classList.replace("showCart", "hideCart") }
 }
 cartBtn.addEventListener("click", showCart);
-// window.addEventListener("scroll", hideCart);
+
 close.addEventListener("click", hideCart);
 RenderCart();

@@ -91,7 +91,7 @@ section {
     margin: 3px;
 }
 
-.articules {
+.articles {
     background-color: var(--dark-color);
     color: var(--dark-color);
     display: flex;
@@ -144,6 +144,9 @@ section {
     text-overflow: ellipsis;
     overflow: hidden;
     color: var(--dark-color);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .product_price {

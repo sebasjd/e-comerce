@@ -40,7 +40,7 @@
     color: var(--light-color);
 }
 
-.cartArticules {
+.cartarticles {
     background-color: var(--dark-color);
     color: var(--light-color);
     display: flex;
