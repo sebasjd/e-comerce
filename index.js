@@ -1,11 +1,19 @@
 const articulesContainer = document.getElementById("articulesContainer");
 const cartContainer = document.querySelector(".cartContainer")
 let loader = document.getElementById("loader");
-
+let modal = document.querySelector(".modal");
 //saveing cart objects
-const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects))
-    //take cart objects frop LS
-let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'))
+const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects));
+//take cart objects frop LS
+let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'));
+// Show cart number
+const cartNumber = document.querySelector(".cartNumber");
+const refreshNumber = () => {
+    cartNumber.innerText = ""
+    cartNumber.innerText = cartObjectsLS.length;
+}
+refreshNumber(cartObjectsLS.length)
+
 
 // function that converts number to currency
 const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
@@ -57,6 +65,23 @@ let renderHomePage = () => {
                 selectedProduct.quantity++;
             } else { cartObjects.push(selectedProduct) }
             saveLocalStorage(cartObjects)
+
+            //Show Modal
+            function hideModal() { modal.classList.replace("showModal", "hideModal"); }
+            const showModal = () => {
+                modal.classList.replace("hideModal", "showModal");
+                modal.innerText = "Added to cart"
+                setTimeout(hideModal, 1000);
+            }
+            showModal()
+
+            //cart number
+            const cartNumber = document.querySelector(".cartNumber");
+            const refreshNumber = () => {
+                cartNumber.innerText = ""
+                cartNumber.innerText = cartObjects.length;
+            }
+            refreshNumber(cartObjects.length)
         }
         btnToCart.addEventListener("click", addProduct)
 
@@ -177,7 +202,22 @@ let renderFilteredProducts = (trademark) => {
             if (cartObjects.includes(selectedProduct)) {
                 selectedProduct.quantity++;
             } else { cartObjects.push(selectedProduct) }
-            saveLocalStorage(cartObjects)
+            saveLocalStorage(cartObjects);
+            //Show Modal
+            function hideModal() { modal.classList.replace("showModal", "hideModal"); }
+            const showModal = () => {
+                modal.classList.replace("hideModal", "showModal");
+                modal.innerText = "Added to cart"
+                setTimeout(hideModal, 1000);
+            }
+            showModal()
+                //cart number
+            const cartNumber = document.querySelector(".cartNumber");
+            const refreshNumber = () => {
+                cartNumber.innerText = ""
+                cartNumber.innerText = cartObjects.length;
+            }
+            refreshNumber(cartObjects.length)
         }
         btnToCart.addEventListener("click", addProduct)
 
@@ -246,6 +286,23 @@ let renderSearch = (trademark) => {
                 selectedProduct.quantity++;
             } else { cartObjects.push(selectedProduct) }
             saveLocalStorage(cartObjects)
+
+            //Show Modal
+            function hideModal() { modal.classList.replace("showModal", "hideModal"); }
+            const showModal = () => {
+                modal.classList.replace("hideModal", "showModal");
+                modal.innerText = "Added to cart"
+                setTimeout(hideModal, 1000);
+            }
+            showModal()
+                //cart number
+            const cartNumber = document.querySelector(".cartNumber");
+            const refreshNumber = () => {
+                cartNumber.innerText = ""
+                cartNumber.innerText = cartObjects.length;
+            }
+            refreshNumber(cartObjects.length)
+
         }
         btnToCart.addEventListener("click", addProduct)
 
@@ -367,15 +424,3 @@ cartBtn.addEventListener("click", showCart);
 // window.addEventListener("scroll", hideCart);
 close.addEventListener("click", hideCart);
 RenderCart();
-
-
-
-
-
-
-
-
-const init = () => {
-    cartObjects = cartObjectsLS
-
-}

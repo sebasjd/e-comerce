@@ -42,8 +42,8 @@
 }
 
 .bn632-hover {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
     width: 63px;
     height: 30px;
     font-weight: bold;
@@ -56,12 +56,13 @@
 
 #menu,
 #cart {
+    display: flex;
     background-color: transparent;
     border: none;
     font-size: 1.7rem;
-    margin: 0 10px;
-    color: var(--light-color);
-    filter: drop-shadow(0px 0px 1px rgba(238, 242, 255, 1)) drop-shadow(0px 0px 1px rgba(238, 242, 255, 1)) drop-shadow(0px 0px 1px rgba(238, 242, 255, 1));
+    color: var(--dark-color);
+    width: 3rem;
+    padding: 0;
 }
 
 .filterBtns {
@@ -214,11 +215,12 @@
 }
 
 .remove {
+    color: var(--light-color);
     border: none;
     outline: none;
     border-radius: 10px;
     background: linear-gradient(145deg, #f0f0f0, var(--dark-color));
-    box-shadow: 3px 3px 6px #b1b1b1, -3px -3px 6px #ffffff;
+    box-shadow: 2px 2px 1px #b1b1b1, -3px -3px 6px #ffffff;
 }
 
 .remove:active {
@@ -244,8 +246,6 @@
     background-color: transparent;
     padding: 2px;
     border-radius: 2px;
-    background: linear-gradient(145deg, #f0f0f0, var(--dark-color));
-    box-shadow: 1px 1px 2px #b1b1b1, -1px -1px 2px #ffffff;
 }
 
 .fa-square-caret-down:active,
@@ -256,7 +256,8 @@
 }
 
 .blockDown {
-    filter: drop-shadow(0px 0px 1.5px rgba(238, 242, 255, 1))!important
+    color: var(--medium-color)!important;
+    background: var(--dark-color);
 }
 
 .purchase {

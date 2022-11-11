@@ -12,7 +12,7 @@
 }
 
 html {
-    background-color: var(--medium-color);
+    background-color: #f1f1f1;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -44,19 +44,16 @@ section {
 #searcher {
     display: flex;
     position: relative;
-    width: 60vw;
+    width: 12rem;
     height: 1.5rem;
     border-radius: 20px;
-    margin: 0 4vw;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
     padding-left: 35px;
-    box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
     border: none;
+    font-size: 1.1rem;
 }
 
 #searcher:focus {
-    box-shadow: 0px 0px 5px 1px rgba(238, 242, 255, 1), 0px 0px 5px 1px rgba(238, 242, 255, 1);
-    outline: none;
+    outline: auto;
     border: none;
 }
 
@@ -95,8 +92,8 @@ section {
 }
 
 .articules {
-    background-color: var(--light-color);
-    color: var(--dark-color-color);
+    background-color: var(--dark-color);
+    color: var(--dark-color);
     display: flex;
     position: relative;
     flex-direction: column;
@@ -120,7 +117,7 @@ section {
 .product_img {
     display: flex;
     position: absolute;
-    height: 100%;
+    height: 7.5rem;
     width: 30%;
     margin-right: 15px;
     object-fit: contain;
@@ -175,4 +172,27 @@ section {
 
 .removeLoader {
     display: none;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    background-color: #11a44e;
+    width: 100%;
+    height: 3rem;
+    bottom: 0rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--dark-color);
+}
+
+.showModal {
+    transform: translateY(0);
+    transition: .3s;
+}
+
+.hideModal {
+    transform: translateY(100%);
+    transition: .3s;
 }
