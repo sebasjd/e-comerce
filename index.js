@@ -10,7 +10,9 @@ let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'));
 // Show cart number
 const cartNumber = document.querySelector(".cartNumber");
 const refreshNumber = () => {
-    if (cartObjectsLS.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+    if (cartObjectsLS.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+        cartNumber.setAttribute("style", "#16003b")
+    }
     cartNumber.innerText = ""
     var quantityCart = 0
     cartObjectsLS.forEach(e => {
@@ -83,7 +85,9 @@ let renderHomePage = () => {
             //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
-                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+                    cartNumber.setAttribute("style", "#16003b")
+                }
                 cartNumber.innerText = ""
                 var quantityCart = 0
                 cartObjects.forEach(e => {
@@ -229,7 +233,9 @@ let renderFilteredProducts = (trademark) => {
                 //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
-                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+                    cartNumber.setAttribute("style", "#16003b")
+                }
                 cartNumber.innerText = ""
                 var quantityCart = 0
                 cartObjects.forEach(e => {
@@ -322,7 +328,9 @@ let renderSearch = (trademark) => {
                 //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
-                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+                    cartNumber.setAttribute("style", "#16003b")
+                }
                 cartNumber.innerText = ""
                 var quantityCart = 0
                 cartObjects.forEach(e => {
@@ -400,7 +408,9 @@ const RenderCart = () => {
                 //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
-                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+                    cartNumber.setAttribute("style", "#16003b")
+                }
                 cartNumber.innerText = ""
                 var quantityCart = 0
                 cartObjects.forEach(e => {
@@ -433,7 +443,9 @@ const RenderCart = () => {
             //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
-                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+                    cartNumber.setAttribute("style", "#16003b")
+                }
                 cartNumber.innerText = ""
                 var quantityCart = 0
                 cartObjects.forEach(e => {
@@ -456,7 +468,9 @@ const RenderCart = () => {
             //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
-                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
+                    cartNumber.setAttribute("style", "#16003b")
+                }
                 cartNumber.innerText = ""
                 var quantityCart = 0
                 cartObjects.forEach(e => {
