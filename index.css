@@ -1,7 +1,7 @@
 :root {
     --dark-color: rgb(255, 255, 255);
     --medium-color: rgb(127, 132, 135);
-    --light-color: rgb(22, 0, 59);
+    --light-color: #16003b;
 }
 
 *,
@@ -156,17 +156,8 @@ section {
     margin-top: -4%;
 }
 
-#loader {
-    position: fixed;
-    color: red;
-    top: 95vh;
-    left: 25vw;
-    font-size: 20px;
-    z-index: 10;
-}
-
 .removeLoader {
-    display: none;
+    display: none!important;
 }
 
 .modal {
@@ -190,4 +181,34 @@ section {
 .hideModal {
     transform: translateY(100%);
     transition: .3s;
+}
+
+.menu_desktop {
+    display: none
+}
+
+.quickAccess {
+    display: none;
+}
+
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.custom-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #16003b);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+    animation: s3 1s infinite linear;
+}
+
+@keyframes s3 {
+    to {
+        transform: rotate(1turn)
+    }
 }

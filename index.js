@@ -1,7 +1,8 @@
 const articlesContainer = document.getElementById("articlesContainer");
 const cartContainer = document.querySelector(".cartContainer")
-let loader = document.getElementById("loader");
 let modal = document.querySelector(".modal");
+let loader = document.getElementById("loader");
+
 //saveing cart objects
 const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects));
 //take cart objects frop LS
@@ -9,10 +10,15 @@ let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'));
 // Show cart number
 const cartNumber = document.querySelector(".cartNumber");
 const refreshNumber = () => {
+    if (cartObjectsLS.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
     cartNumber.innerText = ""
-    cartNumber.innerText = cartObjectsLS.length;
+    var quantityCart = 0
+    cartObjectsLS.forEach(e => {
+        quantityCart += e.quantity
+    })
+    cartNumber.innerText = quantityCart
 }
-refreshNumber(cartObjectsLS.length)
+refreshNumber()
 
 // function that converts number to currency
 const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
@@ -77,10 +83,15 @@ let renderHomePage = () => {
             //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
                 cartNumber.innerText = ""
-                cartNumber.innerText = cartObjects.length;
+                var quantityCart = 0
+                cartObjects.forEach(e => {
+                    quantityCart += e.quantity
+                })
+                cartNumber.innerText = quantityCart
             }
-            refreshNumber(cartObjects.length)
+            refreshNumber()
         }
         btnToCart.addEventListener("click", addProduct)
 
@@ -218,10 +229,15 @@ let renderFilteredProducts = (trademark) => {
                 //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
                 cartNumber.innerText = ""
-                cartNumber.innerText = cartObjects.length;
+                var quantityCart = 0
+                cartObjects.forEach(e => {
+                    quantityCart += e.quantity
+                })
+                cartNumber.innerText = quantityCart
             }
-            refreshNumber(cartObjects.length)
+            refreshNumber()
         }
         btnToCart.addEventListener("click", addProduct)
 
@@ -231,6 +247,10 @@ let renderFilteredProducts = (trademark) => {
     }
     selectedFilter(trademark).forEach(element => renderProduct(element));
     articlesContainer.classList.remove("homePage")
+    window.scroll({
+        top: 350,
+        behavior: 'smooth'
+    });
 
 }
 
@@ -302,10 +322,15 @@ let renderSearch = (trademark) => {
                 //cart number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
                 cartNumber.innerText = ""
-                cartNumber.innerText = cartObjects.length;
+                var quantityCart = 0
+                cartObjects.forEach(e => {
+                    quantityCart += e.quantity
+                })
+                cartNumber.innerText = quantityCart
             }
-            refreshNumber(cartObjects.length)
+            refreshNumber()
 
         }
         btnToCart.addEventListener("click", addProduct)
@@ -372,6 +397,19 @@ const RenderCart = () => {
             cartContainer.innerHTML = ""
             renderAmount()
             RenderCart()
+                //cart number
+            const cartNumber = document.querySelector(".cartNumber");
+            const refreshNumber = () => {
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                cartNumber.innerText = ""
+                var quantityCart = 0
+                cartObjects.forEach(e => {
+                    quantityCart += e.quantity
+                })
+                cartNumber.innerText = quantityCart
+            }
+            refreshNumber()
+
 
         }
         btnRemove.addEventListener("click", removeObject);
@@ -392,6 +430,19 @@ const RenderCart = () => {
             downArrow.classList.remove("blockDown")
             renderAmount()
             saveLocalStorage(cartObjects);
+            //cart number
+            const cartNumber = document.querySelector(".cartNumber");
+            const refreshNumber = () => {
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                cartNumber.innerText = ""
+                var quantityCart = 0
+                cartObjects.forEach(e => {
+                    quantityCart += e.quantity
+                })
+                cartNumber.innerText = quantityCart
+            }
+            refreshNumber()
+
         }
 
         function decrease() {
@@ -402,6 +453,19 @@ const RenderCart = () => {
                 saveLocalStorage(cartObjects);
             };
             if (handleQuantity.value == 1) { downArrow.classList.add("blockDown") }
+            //cart number
+            const cartNumber = document.querySelector(".cartNumber");
+            const refreshNumber = () => {
+                if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("display: none")) } else { cartNumber.setAttribute("style", ("display: flex")) }
+                cartNumber.innerText = ""
+                var quantityCart = 0
+                cartObjects.forEach(e => {
+                    quantityCart += e.quantity
+                })
+                cartNumber.innerText = quantityCart
+            }
+            refreshNumber()
+
         }
         up.addEventListener("click", increase)
         down.addEventListener("click", decrease)
@@ -439,7 +503,7 @@ function resizeEvent() {
         tcl.innerText = "TCL";
         noblex.innerText = "Noblex";
         nokia.innerText = "Nokia";
-        xiaomi.innerText = "Xiami";
+        xiaomi.innerText = "Xiaomi";
     } else {
         samsung.innerText = "";
         motorola.innerText = "";
@@ -451,5 +515,6 @@ function resizeEvent() {
         xiaomi.innerText = "";
     }
 }
-resizeEvent()
-window.addEventListener("resize", resizeEvent)
+resizeEvent();
+window.addEventListener("resize", resizeEvent);
+window.addEventListener("DOMContentLoaded", function() { loader.classList.add("removeLoader") })

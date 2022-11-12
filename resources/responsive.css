@@ -58,34 +58,49 @@
     .contact:hover {
         border-bottom: 1.5px solid var(--dark-color);
     }
-    #publicity {
-        width: 100%;
-        margin: 8rem 0 0 0;
-        height: 20rem;
-    }
-    #quickAccess {
-        top: 5.3rem;
-        display: none;
+    .quickAccess {
+        display: flex;
+        top: 1.2rem;
         position: fixed;
-        z-index: 10;
         color: var(--dark-color);
-        /* background-color: rgba(22, 0, 50, .9); */
+        background-color: rgba(22, 0, 50, .9);
         left: 50%;
-        background-color: red;
         translate: -50%;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         padding-top: 30px;
+        height: 23rem;
+        justify-content: center;
+        align-items: center;
+        transform: rotateY(270deg);
+        transition: transform .2s;
     }
-    #quickAccess :is(.samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi) {
+    .filters:hover~.quickAccess,
+    .quickAccess:hover {
+        transform: rotateY(360deg);
+        transition: transform .2s;
+    }
+    #publicity {
+        width: 95%;
+        left: 50%;
+        translate: -50%;
+        margin: 8rem 0 0 0;
+        height: 20rem;
+    }
+    #quickAccess {
+        display: none;
+    }
+    .quickAccess :is(.samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi) {
         width: 15rem;
         height: 30rem;
         border-radius: 0;
         margin: 0px;
         outline: none;
         font-size: 1.3rem;
+        padding: 10px;
+        justify-content: center;
     }
-    #quickAccess :is(.samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi):hover {
+    .quickAccess :is(.samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi):hover {
         background-color: rgba(127, 132, 135, .9);
         color: var(--light-color);
     }
