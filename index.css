@@ -1,7 +1,7 @@
 :root {
-    --dark-color: #ffffff;
-    --medium-color: #7f8487;
-    --light-color: #16003b;
+    --dark-color: rgb(255, 255, 255);
+    --medium-color: rgb(127, 132, 135);
+    --light-color: rgb(22, 0, 59);
 }
 
 *,
@@ -81,14 +81,6 @@ section {
     flex-wrap: wrap;
     margin: 7px 0 0 0;
     font-size: 30px;
-}
-
-#quickAccess :is(.samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi) {
-    width: 4rem;
-    border-radius: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 3px;
 }
 
 .articles {

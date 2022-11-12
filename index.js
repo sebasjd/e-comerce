@@ -14,8 +14,6 @@ const refreshNumber = () => {
 }
 refreshNumber(cartObjectsLS.length)
 
-
-
 // function that converts number to currency
 const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
     // Render product on home page
@@ -430,3 +428,28 @@ cartBtn.addEventListener("click", showCart);
 
 close.addEventListener("click", hideCart);
 RenderCart();
+
+//function that render text on filter buttons when using desktop version
+function resizeEvent() {
+    if (window.innerWidth >= 769) {
+        samsung.innerText = "Samsung";
+        motorola.innerText = "Motorola";
+        apple.innerText = "Apple";
+        alcatel.innerText = "Alcatel";
+        tcl.innerText = "TCL";
+        noblex.innerText = "Noblex";
+        nokia.innerText = "Nokia";
+        xiaomi.innerText = "Xiami";
+    } else {
+        samsung.innerText = "";
+        motorola.innerText = "";
+        apple.innerText = "";
+        alcatel.innerText = "";
+        tcl.innerText = "";
+        noblex.innerText = "";
+        nokia.innerText = "";
+        xiaomi.innerText = "";
+    }
+}
+resizeEvent()
+window.addEventListener("resize", resizeEvent)
