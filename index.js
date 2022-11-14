@@ -3,6 +3,8 @@ const cartContainer = document.querySelector(".cartContainer")
 let modal = document.querySelector(".modal");
 let loader = document.getElementById("loader");
 
+
+
 //saveing cart objects
 const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects));
 //take cart objects frop LS
@@ -175,6 +177,15 @@ const tcl = document.querySelector(".tcl");
 const noblex = document.querySelector(".noblex");
 const nokia = document.querySelector(".nokia");
 const xiaomi = document.querySelector(".xiaomi");
+//filter desktop
+const samsungDesktop = document.querySelector(".samsungDesktop");
+const motorolaDesktop = document.querySelector(".motorolaDesktop");
+const appleDesktop = document.querySelector(".appleDesktop");
+const alcatelDesktop = document.querySelector(".alcatelDesktop");
+const tclDesktop = document.querySelector(".tclDesktop");
+const noblexDesktop = document.querySelector(".noblexDesktop");
+const nokiaDesktop = document.querySelector(".nokiaDesktop");
+const xiaomiDesktop = document.querySelector(".xiaomiDesktop");
 
 
 let selectedFilter = (trademark) => {
@@ -257,6 +268,14 @@ let renderFilteredProducts = (trademark) => {
         top: 350,
         behavior: 'smooth'
     });
+    // close menu
+    const quickAccessDesktop = document.querySelector(".quickAccessDesktop");
+    const closeMenu = () => {
+        quickAccessDesktop.classList.add("more");
+        let removeClass = () => quickAccessDesktop.classList.remove("more");
+        setTimeout(removeClass, 100)
+    }
+    closeMenu()
 
 }
 
@@ -268,6 +287,14 @@ tcl.addEventListener("click", function() { renderFilteredProducts(tcl) });
 noblex.addEventListener("click", function() { renderFilteredProducts(noblex) });
 nokia.addEventListener("click", function() { renderFilteredProducts(nokia) });
 xiaomi.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
+samsungDesktop.addEventListener("click", function() { renderFilteredProducts(samsung) });
+motorolaDesktop.addEventListener("click", function() { renderFilteredProducts(motorola) });
+appleDesktop.addEventListener("click", function() { renderFilteredProducts(apple) });
+alcatelDesktop.addEventListener("click", function() { renderFilteredProducts(alcatel) });
+tclDesktop.addEventListener("click", function() { renderFilteredProducts(tcl) });
+noblexDesktop.addEventListener("click", function() { renderFilteredProducts(noblex) });
+nokiaDesktop.addEventListener("click", function() { renderFilteredProducts(nokia) });
+xiaomiDesktop.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
 
 // searcher
 
@@ -499,36 +526,10 @@ const showCart = () => {
     RenderCart();
     if (cart.classList.contains("hideCart")) { cart.classList.replace("hideCart", "showCart") }
 }
-const hideCart = () => {
-    if (cart.classList.contains("showCart")) { cart.classList.replace("showCart", "hideCart") }
-}
+const hideCart = () => { if (cart.classList.contains("showCart")) { cart.classList.replace("showCart", "hideCart") } }
+    // hide cart if click is outside cart window
+const hideCartClick = (e) => { if (cart.classList.contains("showCart") && !cart.contains(e.target) && !cartBtn.contains(e.target) && !remove.contains(e.target)) { hideCart() } }
 cartBtn.addEventListener("click", showCart);
-
 close.addEventListener("click", hideCart);
+document.addEventListener("click", hideCartClick)
 RenderCart();
-
-//function that render text on filter buttons when using desktop version
-function resizeEvent() {
-    if (window.innerWidth >= 769) {
-        samsung.innerText = "Samsung";
-        motorola.innerText = "Motorola";
-        apple.innerText = "Apple";
-        alcatel.innerText = "Alcatel";
-        tcl.innerText = "TCL";
-        noblex.innerText = "Noblex";
-        nokia.innerText = "Nokia";
-        xiaomi.innerText = "Xiaomi";
-    } else {
-        samsung.innerText = "";
-        motorola.innerText = "";
-        apple.innerText = "";
-        alcatel.innerText = "";
-        tcl.innerText = "";
-        noblex.innerText = "";
-        nokia.innerText = "";
-        xiaomi.innerText = "";
-    }
-}
-resizeEvent();
-window.addEventListener("resize", resizeEvent);
-window.addEventListener("DOMContentLoaded", function() { loader.classList.add("removeLoader") })
