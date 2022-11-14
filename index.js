@@ -528,8 +528,9 @@ const showCart = () => {
 }
 const hideCart = () => { if (cart.classList.contains("showCart")) { cart.classList.replace("showCart", "hideCart") } }
     // hide cart if click is outside cart window
-const hideCartClick = (e) => { if (cart.classList.contains("showCart") && !cart.contains(e.target) && !cartBtn.contains(e.target) && !remove.contains(e.target)) { hideCart() } }
 cartBtn.addEventListener("click", showCart);
 close.addEventListener("click", hideCart);
-document.addEventListener("click", hideCartClick)
+const hideCartClick = (e) => { if (cart.classList.contains("showCart") && !cart.contains(e.target) && !cartBtn.contains(e.target) && !e.target.classList.contains("remove")) { hideCart() } }
+document.addEventListener("click", hideCartClick);
+window.addEventListener("scroll", hideCart);
 RenderCart();
