@@ -8,7 +8,7 @@ let loader = document.getElementById("loader");
 //saveing cart objects
 const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects));
 //take cart objects frop LS
-let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS'));
+let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS')) || [];
 // Show cart number
 const cartNumber = document.querySelector(".cartNumber");
 const refreshNumber = () => {
