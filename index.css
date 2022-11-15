@@ -14,6 +14,7 @@
 html {
     background-color: #f1f1f1;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100vh;
 }
 
 body {
@@ -205,6 +206,7 @@ section {
     background: conic-gradient(#0000 10%, #16003b);
     -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
     animation: s3 1s infinite linear;
+    margin-bottom: 5rem
 }
 
 @keyframes s3 {

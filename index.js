@@ -108,6 +108,7 @@ let renderHomePage = () => {
                 window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*Check out this article in this store. It's AWESOME!* https://e-commerce-sebasjd.vercel.app/${selectedProduct.id}.html`));
             } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*Check out this article in this store. It's AWESOME!* https://e-commerce-sebasjd.vercel.app/${selectedProduct.id}.html`)); }
         }
+        articlesContainer.classList.add("homePage");
         btnShare.addEventListener("click", nativeShare)
 
     }
@@ -177,6 +178,7 @@ const tcl = document.querySelector(".tcl");
 const noblex = document.querySelector(".noblex");
 const nokia = document.querySelector(".nokia");
 const xiaomi = document.querySelector(".xiaomi");
+const all = document.querySelector(".all");
 //filter desktop
 const samsungDesktop = document.querySelector(".samsungDesktop");
 const motorolaDesktop = document.querySelector(".motorolaDesktop");
@@ -186,6 +188,7 @@ const tclDesktop = document.querySelector(".tclDesktop");
 const noblexDesktop = document.querySelector(".noblexDesktop");
 const nokiaDesktop = document.querySelector(".nokiaDesktop");
 const xiaomiDesktop = document.querySelector(".xiaomiDesktop");
+const allDesktop = document.querySelector(".allDesktop");
 
 
 let selectedFilter = (trademark) => {
@@ -263,7 +266,7 @@ let renderFilteredProducts = (trademark) => {
         btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
     }
     selectedFilter(trademark).forEach(element => renderProduct(element));
-    articlesContainer.classList.remove("homePage")
+    articlesContainer.classList.remove("homePage");
     window.scroll({
         top: 350,
         behavior: 'smooth'
@@ -287,6 +290,7 @@ tcl.addEventListener("click", function() { renderFilteredProducts(tcl) });
 noblex.addEventListener("click", function() { renderFilteredProducts(noblex) });
 nokia.addEventListener("click", function() { renderFilteredProducts(nokia) });
 xiaomi.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
+all.addEventListener("click", function() { renderHomePage() });
 samsungDesktop.addEventListener("click", function() { renderFilteredProducts(samsung) });
 motorolaDesktop.addEventListener("click", function() { renderFilteredProducts(motorola) });
 appleDesktop.addEventListener("click", function() { renderFilteredProducts(apple) });
@@ -295,6 +299,7 @@ tclDesktop.addEventListener("click", function() { renderFilteredProducts(tcl) })
 noblexDesktop.addEventListener("click", function() { renderFilteredProducts(noblex) });
 nokiaDesktop.addEventListener("click", function() { renderFilteredProducts(nokia) });
 xiaomiDesktop.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
+allDesktop.addEventListener("click", function() { renderHomePage() });
 
 // searcher
 
@@ -376,6 +381,10 @@ let renderSearch = (trademark) => {
     }
     searchedFilter(trademark).forEach(element => renderProduct(element));
     articlesContainer.classList.remove("homePage")
+    window.scroll({
+        top: 350,
+        behavior: 'smooth'
+    });
 }
 searcher.addEventListener("input", function() { renderSearch(searcher) });
 

@@ -65,7 +65,7 @@
     padding: 0;
 }
 
-#quickAccess :is(.samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi) {
+#quickAccess :is(.all, .samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi) {
     width: 4rem;
     border-radius: 100%;
     justify-content: center;
@@ -188,6 +188,18 @@
     top: 45vh;
     right: 1.8%;
     background-image: url(./imgFilters/xiaomi.jpg);
+    background-position: center;
+    background-size: 5rem;
+    background-repeat: no-repeat;
+    z-index: 5;
+    transition: box-shadow .2s;
+}
+
+.all {
+    display: flex;
+    top: 45vh;
+    right: 1.8%;
+    background-image: url(./imgFilters/all.jpg);
     background-position: center;
     background-size: 5rem;
     background-repeat: no-repeat;

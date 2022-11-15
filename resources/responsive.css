@@ -74,10 +74,12 @@
         align-items: center;
         transform: rotateY(270deg);
         transition: transform .2s;
+        pointer-events: none;
     }
     .filters:hover~.quickAccessDesktop,
     .quickAccessDesktop:hover {
         transform: rotateY(360deg);
+        pointer-events: visible;
         transition: transform .2s;
     }
     #publicity {
@@ -90,7 +92,7 @@
     #quickAccess {
         display: none;
     }
-    .quickAccessDesktop :is(.samsungDesktop, .motorolaDesktop, .appleDesktop, .alcatelDesktop, .moreDesktop, .tclDesktop, .noblexDesktop, .nokiaDesktop, .xiaomiDesktop) {
+    .quickAccessDesktop :is(.samsungDesktop, .motorolaDesktop, .appleDesktop, .alcatelDesktop, .moreDesktop, .tclDesktop, .noblexDesktop, .nokiaDesktop, .xiaomiDesktop, .all, .allDesktop) {
         width: 15rem;
         height: 30rem;
         border-radius: 0;
@@ -99,8 +101,9 @@
         font-size: 1.3rem;
         padding: 10px;
         justify-content: center;
+        cursor: pointer;
     }
-    .quickAccessDesktop :is(.samsungDesktop, .motorolaDesktop, .appleDesktop, .alcatelDesktop, .moreDesktop, .tclDesktop, .noblexDesktop, .nokiaDesktop, .xiaomiDesktop):hover {
+    .quickAccessDesktop :is(.samsungDesktop, .motorolaDesktop, .appleDesktop, .alcatelDesktop, .moreDesktop, .tclDesktop, .noblexDesktop, .nokiaDesktop, .xiaomiDesktop, .all, .allDesktop):hover {
         background-color: rgba(127, 132, 135, .9);
         color: var(--light-color);
     }
@@ -111,34 +114,6 @@
         justify-content: space-around;
         margin: 0;
         height: 25rem;
-    }
-    .samsung,
-    .samsungDesktop {
-        background: none;
-        display: flex;
-        height: 4rem;
-        outline-style: none;
-    }
-    .apple,
-    .appleDesktop {
-        background: none;
-        display: flex;
-        height: 4rem;
-        outline-style: none;
-    }
-    .motorola,
-    .motorolaDesktop {
-        background: none;
-        display: flex;
-        height: 4rem;
-        outline-style: none;
-    }
-    .alcatel,
-    .alcatelDesktop {
-        background: none;
-        display: flex;
-        height: 4rem;
-        outline-style: none;
     }
     .more {
         display: none;
@@ -152,37 +127,28 @@
         margin: 0;
     }
     .noblex,
-    .noblexDesktop {
-        background: none;
-        height: 4rem;
-        transition: height .5s;
-        display: flex;
-        height: 4rem;
-        outline-style: none;
-    }
+    .noblexDesktop,
     .tcl,
-    .tclDesktop {
-        background: none;
-        height: 4rem;
-        transition: height .5s;
-        display: flex;
-        outline-style: none;
-    }
+    .tclDesktop,
     .nokia,
-    .nokiaDesktop {
-        background: none;
-        transition: height .5s;
-        display: flex;
-        height: 4rem;
-        outline-style: none;
-    }
+    .nokiaDesktop,
     .xiaomi,
-    .xiaomiDesktop {
+    .xiaomiDesktop,
+    .alcatel,
+    .alcatelDesktop,
+    .motorola,
+    .motorolaDesktop,
+    .apple,
+    .appleDesktop,
+    .samsung,
+    .samsungDesktop,
+    .all,
+    .allDesktop {
         background: none;
-        transition: height .5s;
-        display: flex;
         height: 4rem;
+        display: flex;
         outline-style: none;
+        transition: 300ms;
     }
     .menu_desktop {
         display: flex;
@@ -198,5 +164,55 @@
     }
     .menu_desktop .quit {
         display: none;
+    }
+    .total {
+        position: relative;
+    }
+    .cartContainer {
+        position: relative;
+        box-sizing: content-box;
+    }
+    .cart .cartarticles {
+        padding: 0;
+        height: 7rem;
+    }
+    .cart .product {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        margin: 0;
+        padding: 0 5px;
+    }
+    .cart .product img {
+        position: relative;
+        width: 20%;
+        height: auto;
+    }
+    .cart .product_maker,
+    .cart .product_name {
+        font-size: 1rem;
+    }
+    .cart .product_price {
+        font-size: 1.3rem;
+        margin: 5px
+    }
+    .cart .info {
+        position: relative;
+        flex-direction: row;
+        top: -.5rem;
+        height: 3rem;
+    }
+    .cart .quantity {
+        margin: 0 -9rem;
+        font-size: 1.1rem;
+    }
+    .cart .remove {
+        margin-left: -8rem;
+        font-size: .8rem;
+        height: 1.3rem;
+    }
+    .fa-angles-right {
+        font-size: 1.8rem;
+        margin-top: 10px;
     }
 }
