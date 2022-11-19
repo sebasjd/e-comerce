@@ -214,3 +214,20 @@ section {
         transform: rotate(1turn)
     }
 }
+.crystal{
+    display: flex;
+    position: fixed;
+    width: 110vw;
+    height: 110vh;
+    background: rgba(22, 0, 59, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
+    transform: translateY(-150%);
+    transition: .5s;
+}
+.show{
+    transform: translateY(0);
+
+}

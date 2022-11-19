@@ -2,6 +2,7 @@ const articlesContainer = document.getElementById("articlesContainer");
 const cartContainer = document.querySelector(".cartContainer")
 let modal = document.querySelector(".modal");
 let loader = document.getElementById("loader");
+const crystal = document.querySelector(".crystal")
 
 
 
@@ -543,3 +544,20 @@ const hideCartClick = (e) => { if (cart.classList.contains("showCart") && !cart.
 document.addEventListener("click", hideCartClick);
 window.addEventListener("scroll", hideCart);
 RenderCart();
+
+
+//login
+const loginBox = document.querySelector(".login-box");
+const login = document.querySelector(".login");
+let showLogin=()=>{
+    loginBox.classList.add("showLogin");
+    crystal.classList.add("show");
+}
+let hideLogin=()=>{
+    loginBox.classList.remove("showLogin");
+    crystal.classList.remove("show");
+
+}
+const hideLoginClick = (e) => { if (loginBox.classList.contains("showLogin") && !loginBox.contains(e.target) && e.target !==login) { hideLogin()} }
+document.addEventListener("click", hideLoginClick)
+login.addEventListener("click", showLogin)
