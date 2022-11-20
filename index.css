@@ -58,6 +58,9 @@ section {
     border: none;
 }
 
+#searcher::placeholder{
+    color: var(--medium-color);
+}
 #publicity {
     background-color: var(--dark-color);
     display: flex;
@@ -229,5 +232,10 @@ section {
 }
 .show{
     transform: translateY(0);
+
+}
+::placeholder{
+    color: red;
+    padding-left: 3rem;
 
 }

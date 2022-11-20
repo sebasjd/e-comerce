@@ -5,7 +5,6 @@ let loader = document.getElementById("loader");
 const crystal = document.querySelector(".crystal")
 
 
-
 //saveing cart objects
 const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects));
 //take cart objects frop LS
@@ -558,6 +557,133 @@ let hideLogin=()=>{
     crystal.classList.remove("show");
 
 }
-const hideLoginClick = (e) => { if (loginBox.classList.contains("showLogin") && !loginBox.contains(e.target) && e.target !==login) { hideLogin()} }
-document.addEventListener("click", hideLoginClick)
-login.addEventListener("click", showLogin)
+const hideLoginClick = (e) => { if (loginBox.classList.contains("showLogin") && !loginBox.contains(e.target) && e.target !==login && e.target !== register) {hideLogin()} }
+document.addEventListener("click", hideLoginClick);
+login.addEventListener("click", showLogin);
+
+// Show register
+let register = document.querySelector(".register");
+
+const showForm=()=>{
+
+    loginBox.innerHTML=`
+    <h2>Create new account</h2>
+    <form>
+        <div class="user-box">
+            <input type="email" name="" class="mail">
+            <label for="">E-mail</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="" class="user">
+            <label for="">User</label>
+        </div>
+        <div class="user-box">
+            <input type="number" name="" class="phone">
+            <label for="">Phone number</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="" class="pass">
+            <label for="">Password</label>
+        </div>
+        <div class="button-form buttonForm">
+            <a href="#" id="create" class="submit">Create</a>
+            <a href="#" id="cancel" class="submit">Cancel</a>
+        </div>
+    </form>
+`
+
+    // Cancel Register
+    const cancel = document.querySelector("#cancel")
+    const cancelRegister = () =>{
+
+    loginBox.innerHTML=`
+        <h2>Login</h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="" class="user">
+                <label for="">User</label>
+                <span class="userError"></span>
+            </div>
+            <div class="user-box">
+                <input type="password" name="" class="pass">
+                <label for="">Password</label>
+                <span class="passError"></span>
+            </div>
+            <div class="button-form">
+                <a href="#" id="submit">Submit</a>
+                <div id="register">
+                    Don't have an account?
+                    <a href="#" class="register">Register</a>
+                </div>
+            </div>
+        </form>
+        <div id="cancel" style="display: none"></div>
+        `;
+    }
+    cancel.addEventListener("click", cancelRegister)
+
+//validate forms
+let username = document.querySelector(".user")
+let pass = document.querySelector(".pass")
+let mail = document.querySelector(".mail")
+let create = document.querySelector("#create");
+
+let isEmpty = e => e.value == ""? true : false;
+let isBetween = e => e.value.length > 5 ? true : false
+let userVald = e => {
+    const re = /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
+    return re.test(e.value)
+}
+let mailValid= e => {
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    return re.test(e.value)
+}
+let passValid = e => {
+    const re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
+    return re.test(e.value)
+}
+
+const validateForm = () => {
+let correo = false;
+let usuario = false;
+let contraseña = false;
+
+
+    if (isEmpty(username)){
+    username.setAttribute("placeholder","You have to fill this field");
+    username.value = ""} else if (!userVald(username)){
+    username.setAttribute("placeholder","invalid format username");
+    username.value = ""} else if (!isBetween(username)) {username.setAttribute("placeholder","You have to use more characters") ; username.value = ""} else {
+    usuario = true;}
+    
+    if (isEmpty(pass)){
+    pass.setAttribute("placeholder","You have to fill this field");
+    pass.value = ""} else if (!passValid(pass)){
+    pass.setAttribute("placeholder","Invalid format password");
+    pass.value = ""} else if (!isBetween(pass)) {pass.setAttribute("placeholder","You have to use more characters") ; pass.value = ""} else {
+    contraseña = true;}
+    
+    if (isEmpty(mail)){
+    mail.setAttribute("placeholder","You have to fill this field");
+    mail.value = ""} else if (!mailValid(mail)){
+    mail.setAttribute("placeholder","Invalid format e-mail");
+    mail.value = ""} else if (!isBetween(mail)) {mail.setAttribute("placeholder","You have to use more characters") ; mail.value = ""} else {
+    correo = true;}
+    
+    if (correo && contraseña && usuario) {
+        hideLogin();
+        alert("Your new account has been successfully created!!")
+    }
+}
+create.addEventListener("click", validateForm)
+}
+register.addEventListener("click", showForm)
+
+let submit = document.querySelector("#submit");
+let validSubmit = () => {
+let message = document.querySelector("h2")
+message.innerText="Invalid User"
+}
+submit.addEventListener("click",validSubmit)
+
+

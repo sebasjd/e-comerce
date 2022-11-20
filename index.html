@@ -74,21 +74,26 @@
     <h2>Login</h2>
     <form>
         <div class="user-box">
-            <input type="text" name="" id="">
+            <input type="text" name="" class="user">
             <label for="">User</label>
+            <span class="userError"></span>
         </div>
         <div class="user-box">
-            <input type="password" name="" id="">
+            <input type="password" name="" class="pass">
             <label for="">Password</label>
+            <span class="passError"></span>
         </div>
         <div class="button-form">
             <a href="#" id="submit">Submit</a>
             <div id="register">
                 Don't have an account?
-                <a href="#">Register</a>
+                <a href="#" class="register">Register</a>
             </div>
         </div>
+        <div id="cancel" style="display: none"></div>
+
     </form>
+
 </div>
 
     <div id="loader" class="removeLoader">
