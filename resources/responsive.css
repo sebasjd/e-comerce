@@ -60,7 +60,7 @@
     }
     .quickAccessDesktop {
         display: flex;
-        top: 1.7rem;
+        top: 1.6rem;
         position: fixed;
         color: var(--dark-color);
         background-color: rgba(22, 0, 50, .9);
@@ -215,5 +215,8 @@
     .fa-angles-right {
         font-size: 1.8rem;
         margin-top: 10px;
+    }
+    .priceCard{
+        font-size: 1.6rem;
     }
 }

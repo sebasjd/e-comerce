@@ -84,7 +84,7 @@ let renderHomePage = () => {
             }
             showModal()
 
-            //cart number
+            //cart refresh number
             const cartNumber = document.querySelector(".cartNumber");
             const refreshNumber = () => {
                 if (cartObjects.length == 0) { cartNumber.setAttribute("style", ("color: rgb(255,255,255)")) } else {
@@ -105,12 +105,32 @@ let renderHomePage = () => {
         const btnShare = articles.querySelector(".bn53");
         var nativeShare = function() {
             if (window.innerWidth <= 768) {
-                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*Check out this article in this store. It's AWESOME!* https://e-commerce-sebasjd.vercel.app/${selectedProduct.id}.html`));
-            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*Check out this article in this store. It's AWESOME!* https://e-commerce-sebasjd.vercel.app/${selectedProduct.id}.html`)); }
+                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`));
+            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`)); }
         }
-        articlesContainer.classList.add("homePage");
         btnShare.addEventListener("click", nativeShare)
+        articlesContainer.classList.add("homePage");
 
+        // More information
+        let card = articles.querySelector(".product");
+        let centerCard = document.querySelector(".centerCard")
+        const moreInfo = () =>{
+            centerCard.innerHTML=`
+            <i class="fa-solid fa-angle-right"></i>
+            <img src="${selectedProduct.productImg}" alt="Foto de ${selectedProduct.maker} - ${selectedProduct.name}" class="imgCard">
+            <p class="priceCard">$ ${moneyTransform(selectedProduct.price)}</p>
+            <p class="titleCard">${selectedProduct.name}</p>
+            <p class="descriptCard">"${selectedProduct.description}</p>
+            `
+            centerCard.classList.add("showCart");
+
+            let closeCard = document.querySelector(".fa-angle-right");
+            const closeCardFunct = () =>{
+                centerCard.classList.contains("showCart")? centerCard.classList.remove("showCart") : null;
+            }
+            closeCard.addEventListener("click", closeCardFunct)
+        }
+        card.addEventListener("click",moreInfo)
     }
 }
 document.addEventListener("DOMContentLoaded", renderHomePage())
@@ -263,7 +283,34 @@ let renderFilteredProducts = (trademark) => {
 
         //function to sharing feature
         const btnShare = articles.querySelector(".bn53");
-        btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
+        var nativeShare = function() {
+            if (window.innerWidth <= 768) {
+                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`));
+            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`)); }
+        }
+        btnShare.addEventListener("click", nativeShare)
+
+
+        // More information
+        let card = articles.querySelector(".product");
+        let centerCard = document.querySelector(".centerCard")
+        const moreInfo = () =>{
+            centerCard.innerHTML=`
+            <i class="fa-solid fa-angle-right"></i>
+            <img src="${selectedProduct.productImg}" alt="Foto de ${selectedProduct.maker} - ${selectedProduct.name}" class="imgCard">
+            <p class="priceCard">$ ${moneyTransform(selectedProduct.price)}</p>
+            <p class="titleCard">${selectedProduct.name}</p>
+            <p class="descriptCard">"${selectedProduct.description}</p>
+            `
+            centerCard.classList.add("showCart");
+            
+            let closeCard = document.querySelector(".fa-angle-right");
+            const closeCardFunct = () =>{
+                centerCard.classList.contains("showCart")? centerCard.classList.remove("showCart") : null;
+            }
+            closeCard.addEventListener("click", closeCardFunct)
+        }
+        card.addEventListener("click",moreInfo)
     }
     selectedFilter(trademark).forEach(element => renderProduct(element));
     articlesContainer.classList.remove("homePage");
@@ -271,6 +318,7 @@ let renderFilteredProducts = (trademark) => {
         top: 350,
         behavior: 'smooth'
     });
+    
     // close menu
     const quickAccessDesktop = document.querySelector(".quickAccessDesktop");
     const closeMenu = () => {
@@ -377,7 +425,34 @@ let renderSearch = (trademark) => {
 
         //function to sharing feature
         const btnShare = articles.querySelector(".bn53");
-        btnShare.addEventListener("click", function() { console.log("Tocaste Share") })
+        var nativeShare = function() {
+            if (window.innerWidth <= 768) {
+                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`));
+            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`)); }
+        }
+        btnShare.addEventListener("click", nativeShare)
+
+
+        // More information
+        let card = articles.querySelector(".product");
+        let centerCard = document.querySelector(".centerCard")
+        const moreInfo = () =>{
+            centerCard.innerHTML=`
+            <i class="fa-solid fa-angle-right"></i>
+            <img src="${selectedProduct.productImg}" alt="Foto de ${selectedProduct.maker} - ${selectedProduct.name}" class="imgCard">
+            <p class="priceCard">$ ${moneyTransform(selectedProduct.price)}</p>
+            <p class="titleCard">${selectedProduct.name}</p>
+            <p class="descriptCard">"${selectedProduct.description}</p>
+            `
+            centerCard.classList.add("showCart");
+            
+            let closeCard = document.querySelector(".fa-angle-right");
+            const closeCardFunct = () =>{
+                centerCard.classList.contains("showCart")? centerCard.classList.remove("showCart") : null;
+            }
+            closeCard.addEventListener("click", closeCardFunct)
+        }
+        card.addEventListener("click",moreInfo)
     }
     searchedFilter(trademark).forEach(element => renderProduct(element));
     articlesContainer.classList.remove("homePage")
@@ -533,9 +608,9 @@ const close = document.querySelector(".close");
 const showCart = () => {
     cartContainer.innerHTML = ""
     RenderCart();
-    if (cart.classList.contains("hideCart")) { cart.classList.replace("hideCart", "showCart") }
+    if (cart.classList.contains("hideCart")) { cart.classList.replace("hideCart", "showCart"); crystal.classList.add("show"); }
 }
-const hideCart = () => { if (cart.classList.contains("showCart")) { cart.classList.replace("showCart", "hideCart") } }
+const hideCart = () => { if (cart.classList.contains("showCart")) { cart.classList.replace("showCart", "hideCart"); crystal.classList.remove("show"); confirm.classList.remove("showConfirm");} }
     // hide cart if click is outside cart window
 cartBtn.addEventListener("click", showCart);
 close.addEventListener("click", hideCart);
@@ -551,6 +626,8 @@ const login = document.querySelector(".login");
 let showLogin=()=>{
     loginBox.classList.add("showLogin");
     crystal.classList.add("show");
+    login.classList.contains("mostrar")? login.classList.remove("mostrar") : login.classList.add("mostrar");
+    contact.classList.contains("mostrar")? contact.classList.remove("mostrar") : contact.classList.add("mostrar");
 }
 let hideLogin=()=>{
     loginBox.classList.remove("showLogin");
@@ -592,8 +669,8 @@ const showForm=()=>{
     </form>
 `
 
-    // Cancel Register
-    const cancel = document.querySelector("#cancel")
+// Cancel Register
+const cancel = document.querySelector("#cancel")
     const cancelRegister = () =>{
 
     loginBox.innerHTML=`
@@ -608,7 +685,7 @@ const showForm=()=>{
                 <input type="password" name="" class="pass">
                 <label for="">Password</label>
                 <span class="passError"></span>
-            </div>
+                </div>
             <div class="button-form">
                 <a href="#" id="submit">Submit</a>
                 <div id="register">
@@ -686,4 +763,56 @@ message.innerText="Invalid User"
 }
 submit.addEventListener("click",validSubmit)
 
+// Burger menu
+const burger = document.querySelector(".fa-bars");
+const contact = document.querySelector(".contact");
+const showBurger = () => {
+    crystal.classList.contains("show")? crystal.classList.remove("show") : crystal.classList.add("show");
+    login.classList.contains("mostrar")? login.classList.remove("mostrar") : login.classList.add("mostrar");
+    contact.classList.contains("mostrar")? contact.classList.remove("mostrar") : contact.classList.add("mostrar");
+}
+burger.addEventListener("click",showBurger);
 
+// confirm purchase
+let confirmBtn = document.querySelector(".purchase");
+const confirm = document.querySelector(".confirm");
+
+const confirmPressed = (e) =>{
+    e.preventDefault();
+    if (cartObjects != ""){
+    confirm.innerHTML=`
+        <p> Do you want to confirm purchase?</p>
+        <div class="btns">
+            <buttonc class="yes">Yes</buttonc>
+            <button class="no">No</button>
+        </div>
+    `
+    let yesBtn = document.querySelector(".yes");
+    let noBtn = document.querySelector(".no");
+    const noFunct= () =>{
+        confirm.classList.remove("showConfirm");
+        confirm.innerHTML=""
+    }
+
+    const yesFunct = () => {
+        confirm.innerHTML=""
+        cartObjects = [];
+        saveLocalStorage(cartObjects);
+        hideCart();
+        refreshNumber();
+        confirm.classList.remove("showConfirm");
+//Show Modal
+        function hideModal() { modal.classList.replace("showModal", "hideModal"); }
+        const showModal = () => {
+            modal.classList.replace("hideModal", "showModal");
+            modal.innerText = "Successful purchase!!"
+            setTimeout(hideModal, 3000);
+            }
+        showModal()
+    }
+    noBtn.addEventListener("click", noFunct)
+    yesBtn.addEventListener("click", yesFunct)
+    confirm.classList.add("showConfirm");
+}
+};
+confirmBtn.addEventListener("click", confirmPressed)

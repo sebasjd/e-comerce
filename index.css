@@ -23,6 +23,13 @@ body {
     flex-direction: column;
     margin: 0 0px;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
 
 section {
     margin: 7px 0px;
@@ -188,7 +195,7 @@ section {
 }
 
 .menu_desktop {
-    display: none
+    display: flex
 }
 
 .quickAccess {
@@ -210,6 +217,7 @@ section {
     -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
     animation: s3 1s infinite linear;
     margin-bottom: 5rem
+    
 }
 
 @keyframes s3 {
@@ -238,4 +246,110 @@ section {
     color: red;
     padding-left: 3rem;
 
+}
+
+.centerCard{
+    display: flex;
+    position: fixed;
+    height: calc(100% - 7rem);
+    width: 95vw;
+    max-width: 500px;
+    background: #16003be6;
+    bottom: .5rem;
+    right: 0;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 1);
+    color: var(--dark-color);
+    transform: translateX(150%);
+    transition: .5s;
+}
+.fa-angle-right{
+    font-size: 1.8rem;
+    margin: 1rem 1rem 0 1rem;
+}
+.imgCard{
+    display: flex;
+    position: relative;
+    width: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    margin-top: -1rem;
+}
+.priceCard{
+    text-align: center;
+    font-size: 1.8rem;
+    color: #d7d3ec;
+}
+.titleCard{
+    margin: 0 2rem;
+    color: #d7d3ec;
+    font-size: 1.2rem;
+}
+.descriptCard{
+    margin: 1.5rem;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 25px;
+    overflow-y: auto;
+padding-right: .8rem;
+}
+
+
+@media screen and (max-width: 770px) {
+.menu_desktop {
+    display: flex
+} 
+.quickAccessDesktop{
+    display: none;
+}
+.quit{
+    display: none;
+}
+.filters{
+    display: none;
+}
+.login{
+    position: fixed;
+    color: var(--dark-color);
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: rgba(22, 0, 59,.5);
+    text-align: center;
+    top: 5.7rem;
+    z-index: 1;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    transform: translateX(-300%);
+    transition: .5s;
+}
+.login:hover{
+background-color: rgba(143, 124, 236,.5);
+}
+.contact{
+    position: fixed;
+    color: var(--dark-color);
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: rgba(22, 0, 59,.5);
+    text-align: center;
+    top: 10.3rem;
+    z-index: 1;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    transform: translateX(-300%);
+    transition: .5s;
+}  
+.mostrar {
+    transform: translateX(0);
+}
+.contact:hover{
+background-color: rgba(143, 124, 236,.5);
+}
+.centerCard{
+    height: calc(100% - 5rem);
+    width: 100%;
+
+}
 }
