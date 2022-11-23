@@ -50,6 +50,8 @@ section {
 }
 .logo{
 display: none;
+cursor: pointer;
+
 }
 
 #searcher {
@@ -118,6 +120,7 @@ display: none;
     flex-direction: row;
     height: 15.3vh;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .product_img {

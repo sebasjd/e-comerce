@@ -63,6 +63,8 @@
     color: var(--dark-color);
     width: 3rem;
     padding: 0;
+    cursor: pointer;
+
 }
 
 #quickAccess :is(.all, .samsung, .motorola, .apple, .alcatel, .more, .tcl, .noblex, .nokia, .xiaomi) {
