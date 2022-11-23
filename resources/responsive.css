@@ -1,4 +1,10 @@
 @media screen and (min-width: 770px) {
+    .logo{
+        display: flex;
+        position: fixed;
+        width: 7rem;
+        left: 1.5rem;
+    }
     section {
         display: flex;
         flex-wrap: wrap;
@@ -87,7 +93,7 @@
         left: 50%;
         translate: -50%;
         margin: 8rem 0 0 0;
-        height: 20rem;
+        height: 70vh;
     }
     #quickAccess {
         display: none;

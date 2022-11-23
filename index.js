@@ -24,6 +24,27 @@ const refreshNumber = () => {
 }
 refreshNumber()
 
+// Carousel
+
+var images = ['./resources/samsung.jpg','./resources/tcl.jpg','./resources/alcatel.jpg','./resources/samsung2.jpg', './resources/galaxy.jpg','./resources/iphone.jpg', './resources/xiaomi.jpg']
+let cont = 0;
+const container = document.querySelector('#publicity') 
+function carrousel(container){
+
+if(cont < images.length){
+    container.setAttribute("style",`background-image: url(${images[cont]})`) 
+    cont++
+} else { 
+    container.setAttribute("style",`background-image: url(${images[0]})`);
+    cont = 1;
+}
+}
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+    setInterval(carrousel, 5000, container)
+})
+
 // function that converts number to currency
 const moneyTransform = (amount) => { return Intl.NumberFormat("ar-AR").format(amount); }
     // Render product on home page
