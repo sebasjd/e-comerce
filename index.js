@@ -126,8 +126,8 @@ let renderHomePage = () => {
         const btnShare = articles.querySelector(".bn53");
         var nativeShare = function() {
             if (window.innerWidth <= 768) {
-                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`));
-            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker}* at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`)); }
+                window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker} ${selectedProduct.name}*  at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`));
+            } else { window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(`*This store is AWESOME!*  has a *${selectedProduct.maker} ${selectedProduct.name}*  at *$${moneyTransform(selectedProduct.price)}*         - https://e-commerce-sebasjd.vercel.app`)); }
         }
         btnShare.addEventListener("click", nativeShare)
         articlesContainer.classList.add("homePage");
@@ -135,8 +135,8 @@ let renderHomePage = () => {
         // More information
         let card = articles.querySelector(".product");
         let centerCard = document.querySelector(".centerCard")
-        const moreInfo = () =>{
-            centerCard.innerHTML=`
+        const moreInfo = (e) =>{
+            if(e.target !== btnToCart && e-target !== btnShare){centerCard.innerHTML=`
             <i class="fa-solid fa-angle-right"></i>
             <img src="${selectedProduct.productImg}" alt="Foto de ${selectedProduct.maker} - ${selectedProduct.name}" class="imgCard">
             <p class="priceCard">$ ${moneyTransform(selectedProduct.price)}</p>
@@ -149,7 +149,7 @@ let renderHomePage = () => {
             const closeCardFunct = () =>{
                 centerCard.classList.contains("showCart")? centerCard.classList.remove("showCart") : null;
             }
-            closeCard.addEventListener("click", closeCardFunct)
+            closeCard.addEventListener("click", closeCardFunct)}
         }
         card.addEventListener("click",moreInfo)
     }
@@ -359,7 +359,7 @@ tcl.addEventListener("click", function() { renderFilteredProducts(tcl) });
 noblex.addEventListener("click", function() { renderFilteredProducts(noblex) });
 nokia.addEventListener("click", function() { renderFilteredProducts(nokia) });
 xiaomi.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
-all.addEventListener("click", function() { renderHomePage() });
+all.addEventListener("click", function() { articlesContainer.innerHTML="" ; renderHomePage() });
 samsungDesktop.addEventListener("click", function() { renderFilteredProducts(samsung) });
 motorolaDesktop.addEventListener("click", function() { renderFilteredProducts(motorola) });
 appleDesktop.addEventListener("click", function() { renderFilteredProducts(apple) });
@@ -368,7 +368,7 @@ tclDesktop.addEventListener("click", function() { renderFilteredProducts(tcl) })
 noblexDesktop.addEventListener("click", function() { renderFilteredProducts(noblex) });
 nokiaDesktop.addEventListener("click", function() { renderFilteredProducts(nokia) });
 xiaomiDesktop.addEventListener("click", function() { renderFilteredProducts(xiaomi) });
-allDesktop.addEventListener("click", function() { renderHomePage() });
+allDesktop.addEventListener("click", function() { articlesContainer.innerHTML="" ; renderHomePage() });
 
 // searcher
 
