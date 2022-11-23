@@ -145,6 +145,7 @@
     margin: 7px 0 0 0;
     font-size: 30px;
     justify-content: space-around;
+    z-index: 0;
 }
 
 .noblex {

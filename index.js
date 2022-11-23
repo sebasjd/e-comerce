@@ -136,7 +136,7 @@ let renderHomePage = () => {
         let card = articles.querySelector(".product");
         let centerCard = document.querySelector(".centerCard")
         const moreInfo = (e) =>{
-            if(e.target !== btnToCart && e-target !== btnShare){centerCard.innerHTML=`
+            if(e.target !== btnToCart && e.target !== btnShare){centerCard.innerHTML=`
             <i class="fa-solid fa-angle-right"></i>
             <img src="${selectedProduct.productImg}" alt="Foto de ${selectedProduct.maker} - ${selectedProduct.name}" class="imgCard">
             <p class="priceCard">$ ${moneyTransform(selectedProduct.price)}</p>
