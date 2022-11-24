@@ -26,7 +26,7 @@ refreshNumber()
 
 // Carousel
 
-var images = ['./resources/samsung.jpg','./resources/tcl.jpg','./resources/alcatel.jpg','./resources/samsung2.jpg', './resources/galaxy.jpg','./resources/iphone.jpg', './resources/xiaomi.jpg']
+var images = ['./resources/ads/samsung.jpg','./resources/ads/tcl.jpg','./resources/ads/alcatel.jpg','./resources/ads/samsung2.jpg', './resources/ads/galaxy.jpg','./resources/ads/iphone.jpg', './resources/ads/xiaomi.jpg']
 let cont = 0;
 const container = document.querySelector('#publicity') 
 function carousel(container){
