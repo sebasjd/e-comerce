@@ -7,7 +7,7 @@ const crystal = document.querySelector(".crystal")
 
 //saveing cart objects
 const saveLocalStorage = (cartObjects) => localStorage.setItem("cartObjectsLS", JSON.stringify(cartObjects));
-//take cart objects frop LS
+//take cart objects from LS
 let cartObjectsLS = JSON.parse(localStorage.getItem('cartObjectsLS')) || [];
 // Show cart number
 const cartNumber = document.querySelector(".cartNumber");
@@ -29,7 +29,7 @@ refreshNumber()
 var images = ['./resources/samsung.jpg','./resources/tcl.jpg','./resources/alcatel.jpg','./resources/samsung2.jpg', './resources/galaxy.jpg','./resources/iphone.jpg', './resources/xiaomi.jpg']
 let cont = 0;
 const container = document.querySelector('#publicity') 
-function carrousel(container){
+function carousel(container){
 
 if(cont < images.length){
     container.setAttribute("style",`background-image: url(${images[cont]})`) 
@@ -42,7 +42,7 @@ if(cont < images.length){
 
 
 document.addEventListener("DOMContentLoaded",()=>{
-    setInterval(carrousel, 5000, container)
+    setInterval(carousel, 5000, container)
 })
 
 // function that converts number to currency
